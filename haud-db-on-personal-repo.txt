@@ -1,0 +1,18 @@
+https://github.com/
+user name : MVR8476
+login : mvr#1976
+
+
+https://github.com/MVR8476/haud
+
+create a new repository on the command line
+
+md docker-hub
+cd docker-hub
+create DockerFile
+git init
+git add .
+git commit -m "continuous integration docker hub"
+git remote add origin https://github.com/MVR8476/haud.git
+git push -u origin master
+
