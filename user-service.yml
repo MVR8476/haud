@@ -1,0 +1,18 @@
+usrsrv:  
+  ldap: 
+    url: ldap://191.255.15.251:389     
+    userDn: CN=mayuresh.,CN=Users,DC=matfar,DC=haud
+    password: 1234567!a
+    setBase: CN=Users,DC=matfar,DC=haud
+    user: 
+      objectclass: user
+    group: 
+      objectclass: group
+    cn :
+      objectclass: cn
+    member: 
+      objectclass: member
+    mail: 
+      attribute: mail
+    distinguishedName: 
+      objectclass: distinguishedName
