@@ -1,3 +1,34 @@
+server:
+  servlet:
+    context-path: /haud
+  error:
+    include-stacktrace: never
+
+spring:
+  mvc:
+    favicon:
+      enabled: false
+        
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215MB  
+
+logging:
+  level:    
+   com.haud: DEBUG
+  path: log
+  file: ${logging.path}/haud-ldap-log.log
+  pattern:
+    file:   "%d{dd-MM-yyyy HH:mm:ss.SSS} %-1level  [%logger.%M - %L] - %msg%n"
+   
+haud:  
+  app: 
+    uuid: X-HAUD-INTERNAL-UUID  
+
+
 usrsrv:  
   ldap: 
     url: ldap://191.255.15.251:389     
