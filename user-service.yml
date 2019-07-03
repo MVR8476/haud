@@ -16,3 +16,6 @@ usrsrv:
       attribute: mail
     distinguishedName: 
       objectclass: distinguishedName
+  patterns:
+    password: ((?=.*[a-z])(?=.*\\d)(?=.*[A-Z])(?=.*[@#$%!]).{8,40})
+       
