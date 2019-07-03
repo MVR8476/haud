@@ -48,5 +48,5 @@ usrsrv:
     distinguishedName: 
       objectclass: distinguishedName
   patterns:
-    password: ((?=.*[a-z])(?=.*\\d)(?=.*[A-Z])(?=.*[@#$%!]).{8,40})
+    password: "((?=.*[a-z])(?=.*/\\d)(?=.*[A-Z])(?=.*[@#$%!]).{8,40})"
        
