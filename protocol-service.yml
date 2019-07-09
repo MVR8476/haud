@@ -32,7 +32,7 @@ spring:
     favicon:
       enabled: false  
   datasource:
-    url: jdbc:mysql://localhost:3306/svallin-db?createDatabaseIfNotExist=true&useSSL=true
+    url: jdbc:mysql://localhost:3306/svallin_db?createDatabaseIfNotExist=true&useSSL=true
     username: root
     password: mvrmvr
 # ===============================
