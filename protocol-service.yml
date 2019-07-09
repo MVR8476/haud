@@ -1,4 +1,16 @@
+# ===============================
+# = APPLICATION SERVER configurations
+# ===============================   
 server:
+  undertow: 
+    ioThreads: 15
+    workerThreads: 150
+    accesslog:
+      enabled: true
+  compression: 
+    enabled: true
+    mimeTypes: text/xml, text/css, text/html, application/json
+    minResponseSize: 4096  
   servlet:
     context-path: /haud
 # ===============================
@@ -13,6 +25,9 @@ haud:
 spring:
   main:
     banner-mode: 'off' 
+  resources:
+    chain:
+      enabled: true  
   mvc:
     favicon:
       enabled: false  
