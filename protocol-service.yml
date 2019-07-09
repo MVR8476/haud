@@ -2,14 +2,6 @@ server:
   servlet:
     context-path: /haud
 
-
-# ===============================
-# = HAUND UUID configurations
-# ===============================   
-haud:  
-  app: 
-    uuid: X-HAUD-INTERNAL-UUID 
-	
 # ===============================
 # = Hibernate datasource
 # ===============================
@@ -48,4 +40,9 @@ logging:
   pattern:
     file:   "%d{dd-MM-yyyy HH:mm:ss.SSS} %-1level  [%logger.%M - %L] - %msg%n"
    
- 
+# ===============================
+# = HAUND UUID configurations
+# ===============================   
+haud:  
+  app: 
+    uuid: X-HAUD-INTERNAL-UUID  
