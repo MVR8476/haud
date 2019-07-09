@@ -7,7 +7,6 @@ server:
 haud:  
   app: 
     uuid: X-HAUD-INTERNAL-UUID  
-	
 # ===============================
 # = Hibernate datasource
 # ===============================
@@ -21,7 +20,6 @@ spring:
     url: jdbc:mysql://localhost:3306/haud_db?createDatabaseIfNotExist=true&useSSL=true
     username: root
     password: mvrmvr
-
 # ===============================
 # = JPA configurations
 # ===============================
@@ -34,7 +32,6 @@ spring:
     database-platform: MYSQL
     properties:
       hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-
 # ===============================
 # = Logging configurations
 # ===============================
@@ -44,5 +41,4 @@ logging:
   path: log
   file: ${logging.path}/haud-ldap-log.log
   pattern:
-    file:   "%d{dd-MM-yyyy HH:mm:ss.SSS} %-1level  [%logger.%M - %L] - %msg%n"
-   
+    file:   "%d{dd-MM-yyyy HH:mm:ss.SSS} %-1level  [%logger.%M - %L] - %msg%n"   
