@@ -19,7 +19,7 @@ server:
 haud:  
   app: 
     uuid: X-HAUD-INTERNAL-UUID  
-	maxSize: 500  
+	maxsize: 500  
 # ===============================
 # = Hibernate datasource
 # ===============================
