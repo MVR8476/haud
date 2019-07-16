@@ -25,6 +25,7 @@ haud:
     database-url: jdbc:mysql://localhost:3306/haud_flydb
     database-user: root
     database-password: mvrmvr      
+    migrate: true
 # ===============================
 # = Hibernate datasource
 # ===============================
