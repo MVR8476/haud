@@ -19,6 +19,9 @@ server:
 haud:  
   app: 
     uuid: X-HAUD-INTERNAL-UUID
+           
+protserv:
+  pagable:    
     maxsize: 500
   flydb:
     database-version: 5.1.17
