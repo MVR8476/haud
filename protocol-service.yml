@@ -25,7 +25,7 @@ protserv:
     maxsize: 500
   flydb:
     database-version: 5.1.17
-    database-url: jdbc:mysql://localhost:3306/haud_flydb
+    database-url: jdbc:mysql://localhost:3306/haud_flydb?createDatabaseIfNotExist=true&useSSL=true
     database-user: root
     database-password: mvrmvr      
     migrate: true
