@@ -18,8 +18,17 @@ server:
 # ===============================   
 haud:  
   app: 
-    uuid: X-HAUD-INTERNAL-UUID
-           
+    uuid: X-HAUD-INTERNAL-UUID           
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    maxActive: 2048
+    maxIdle: 200
+    minIdle: 200
+    maxWait: 10
+    testBorrow: true 
+    key : members		   
+	
 protserv:
   pagable:    
     maxsize: 500
