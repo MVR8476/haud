@@ -27,8 +27,9 @@ haud:
     minIdle: 200
     maxWait: 10
     testBorrow: true 
-    key : members	
-	enabled: false    
+    key : members
+	enabled: false
+	
 protserv:
   pagable:    
     maxsize: 500
