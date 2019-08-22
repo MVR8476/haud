@@ -46,10 +46,10 @@ haud:
     setConnectionPoolSize: 64
     setThreads: 0
     setNettyThreads: 0
-	setProducerList: haud-produce
-	setProducerTopic: haud-produce-Topic
-	setConsumerList: haud-consume
-	setConsumerTopic: haud-consume-Topic
+    setProducerList: haud-produce
+    setProducerTopic: haud-produce-Topic
+    setConsumerList: haud-consume
+    setConsumerTopic: haud-consume-Topic
 protserv:
   pagable:    
     maxsize: 500
