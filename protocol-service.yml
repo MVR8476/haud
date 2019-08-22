@@ -30,22 +30,22 @@ haud:
     key: members 
     enabled: false
   redisson:
-    :setAddress: redis://localhost:6379
-    :setClientName: null
-    :setIdleConnectionTimeout: 10000
-    :setPingTimeout: 1000
-    :setConnectTimeout: 1000
-    :setTimeout: 1000
-    :setRetryAttempts: 3
-    :setRetryInterval: 1500
-    :setReconnectionTimeout: 3000
-    :setSubscriptionsPerConnection: 5
-    :setSubscriptionConnectionMinimumIdleSize: 1
-    :setSubscriptionConnectionPoolSize: 50
-    :setConnectionMinimumIdleSize: 10
-    :setConnectionPoolSize: 64
-    :setThreads: 0
-    :setNettyThreads: 0
+    setAddress: redis://localhost:6379
+    setClientName: null
+    setIdleConnectionTimeout: 10000
+    setPingTimeout: 1000
+    setConnectTimeout: 1000
+    setTimeout: 1000
+    setRetryAttempts: 3
+    setRetryInterval: 1500
+    setReconnectionTimeout: 3000
+    setSubscriptionsPerConnection: 5
+    setSubscriptionConnectionMinimumIdleSize: 1
+    setSubscriptionConnectionPoolSize: 50
+    setConnectionMinimumIdleSize: 10
+    setConnectionPoolSize: 64
+    setThreads: 0
+    setNettyThreads: 0
 protserv:
   pagable:    
     maxsize: 500
