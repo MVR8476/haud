@@ -48,8 +48,7 @@ haud:
     setNettyThreads: 0
     setProducerList: haud-produce
     setProducerTopic: haud-produce-Topic
-    setConsumerList: haud-consume
-    setConsumerTopic: haud-consume-Topic
+    sinkdataTopic: haud-sink-Topic
 protserv:
   pagable:    
     maxsize: 500
