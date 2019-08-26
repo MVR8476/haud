@@ -37,6 +37,7 @@ haud:
     setConnectTimeout: 1000
     setTimeout: 1000
     setRetryAttempts: 3
+	setPassword: null
     setRetryInterval: 1500
     setReconnectionTimeout: 3000
     setSubscriptionsPerConnection: 5
