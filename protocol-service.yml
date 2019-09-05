@@ -51,7 +51,7 @@ protserv:
     migrate: true
 LTErule:
    url: http://192.168.20.34:13060/api/rule/LTErule/applicationGID/exists/{ids}/
-   ignoreUnitTestCase: true 
+   ignoreUnitTestCase: false 
 # ===============================
 # = Hibernate datasource
 # ===============================
