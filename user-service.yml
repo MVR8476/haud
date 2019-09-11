@@ -47,6 +47,10 @@ usrsrv:
       attribute: mail
     distinguishedName: 
       objectclass: distinguishedName
+    restrictedAttributesWhileUpdate: 
+      objectclass: cn,sn,sAMAccountName,givename
+    restrictedSuperUsers: 
+      objectclass: mayuresh.Administrator	  
   patterns:
     password: "((?=.*[a-z])(?=.*\\d)(?=.*[A-Z])(?=.*[@#$%!]).{8,40})"
        
