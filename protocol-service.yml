@@ -39,8 +39,7 @@ haud:
     setNettyThreads: 150
     setProducerList: haud-produce
     setProducerTopic: haud-produce-Topic
-    sinkdataTopic: haud-sink-Topic
-	
+    sinkdataTopic: haud-sink-Topic	
 authsvc:
   openid:
     wellKnownConfig:
