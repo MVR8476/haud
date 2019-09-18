@@ -20,14 +20,14 @@ haud:
   app: 
     uuid: X-HAUD-INTERNAL-UUID           
   redisson:
-    setAddress: redis://localhost:6379
+    setAddress: redis://192.168.20.34:6379
     setClientName: null
     setIdleConnectionTimeout: 10000
     setPingTimeout: 1000
     setConnectTimeout: 1000
     setTimeout: 1000
     setRetryAttempts: 3
-    setPassword: mvr#1976
+    setPassword: password123
     setRetryInterval: 1500
     setReconnectionTimeout: 3000
     setSubscriptionsPerConnection: 5
@@ -37,7 +37,7 @@ haud:
     setConnectionPoolSize: 64
     setThreads: 15
     setNettyThreads: 150
-    setProducerList: haud-produce
+    setProducerList: haud-produce-2
     setProducerTopic: haud-produce-Topic
     sinkdataTopic: haud-sink-Topic	
 authsvc:
