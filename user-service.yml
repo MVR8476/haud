@@ -76,5 +76,4 @@ authsvc:
 audit:
   service:
     url: http://192.168.20.34:13030/api/audit
-  enabled: true
-       
+  enabled: true      
