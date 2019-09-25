@@ -64,7 +64,7 @@ protserv:
     database-password: mvrmvr      
     migrate: true
 LTErule:
-   url: http://192.168.20.34:13060/api/rule/LTErule/applicationGID/exists/{ids}/
+   url: http://192.168.20.34:13060/api/rule/lterule/applicationGID/exists/{ids}/
    ignoreUnitTestCase: false 
 # ===============================
 # = Hibernate datasource
