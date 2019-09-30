@@ -35,8 +35,8 @@ haud:
     setSubscriptionConnectionPoolSize: 50
     setConnectionMinimumIdleSize: 10
     setConnectionPoolSize: 64
-    setThreads: 15
-    setNettyThreads: 150
+    setThreads: 256
+    setNettyThreads: 512
     setProducerList: haud-produce
     setProducerTopic: haud-produce-Topic
     sinkdataTopic: haud-sink-Topic	
