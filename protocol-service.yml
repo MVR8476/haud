@@ -39,7 +39,30 @@ haud:
     setNettyThreads: 512
     setProducerList: haud-produce
     setProducerTopic: haud-produce-Topic
-    sinkdataTopic: haud-sink-Topic	
+    sinkdataTopic: haud-sink-Topic
+    sentinelServersConfig:
+       setIdleConnectionTimeout: 10000
+       setConnectTimeout: 10000
+       setTimeout: 3000
+       setRetryAttempts: 3
+       setRetryInterval: 1500
+       setFailedSlaveReconnectionInterval: 3000
+       setFailedSlaveCheckInterval: 60000
+       setPassword: mvr#1976
+       setSubscriptionsPerConnection: 5
+       setClientName: null
+       setThreads: 16
+       setNettyThreads: 32
+       setSubscriptionConnectionMinimumIdleSize: 1
+       setSubscriptionConnectionPoolSize: 50
+       setSlaveConnectionMinimumIdleSize: 24
+       setSlaveConnectionPoolSize: 64
+       setMasterConnectionMinimumIdleSize: 24
+       setMasterConnectionPoolSize: 64
+       setMasterName: haud-produce-master
+       setMasterAddress : redis://localhost:6379
+       setDatabase: 0
+       setSentinelAddresses: redis://127.0.0.1:26379,redis://127.0.0.1:26389      	
 authsvc:
   openid:
     wellKnownConfig:
