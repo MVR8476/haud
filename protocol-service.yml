@@ -89,7 +89,8 @@ haud:
        setMasterConnectionPoolSize: 64
        setMasterName: mymaster
        setMasterAddress : redis://localhost:6379
-       setDatabase: 0       	
+       setDatabase: 0
+       setSentinelAddresses: redis://127.0.0.1:26379     	
 authsvc:
   openid:
     wellKnownConfig:
