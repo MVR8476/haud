@@ -20,6 +20,26 @@ haud:
   app: 
     uuid: X-HAUD-INTERNAL-UUID           
   redisson:
+    setAddress: redis://localhost:6379
+    setClientName: null
+    setIdleConnectionTimeout: 10000
+    setPingTimeout: 1000
+    setConnectTimeout: 1000
+    setTimeout: 1000
+    setRetryAttempts: 3
+    setPassword: mvr#1976
+    setRetryInterval: 1500
+    setReconnectionTimeout: 3000
+    setSubscriptionsPerConnection: 5
+    setSubscriptionConnectionMinimumIdleSize: 1
+    setSubscriptionConnectionPoolSize: 50
+    setConnectionMinimumIdleSize: 10
+    setConnectionPoolSize: 64
+    setThreads: 256
+    setNettyThreads: 512
+    setProducerList: haud-produce
+    setProducerTopic: haud-produce-Topic
+    sinkdataTopic: haud-sink-Topic
     sentinelServersConfig:
        setIdleConnectionTimeout: 10000
        setConnectTimeout: 10000
@@ -42,7 +62,7 @@ haud:
        setMasterName: haud-produce-master
        setMasterAddress : redis://localhost:6379
        setDatabase: 0
-       setSentinelAddresses: redis://127.0.0.1:26379      	
+       setSentinelAddresses: redis://127.0.0.1:26379,redis://127.0.0.1:26389      	
 authsvc:
   openid:
     wellKnownConfig:
