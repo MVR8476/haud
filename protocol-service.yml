@@ -20,6 +20,9 @@ haud:
   app: 
     uuid: X-HAUD-INTERNAL-UUID           
   redisson:
+    setProducerList: haud-produce
+    setProducerTopic: haud-produce-Topic
+    sinkdataTopic: haud-sink-Topic
     sentinelServersConfig:
        setIdleConnectionTimeout: 10000
        setConnectTimeout: 10000
