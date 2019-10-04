@@ -59,10 +59,10 @@ haud:
        setSlaveConnectionPoolSize: 64
        setMasterConnectionMinimumIdleSize: 24
        setMasterConnectionPoolSize: 64
-       setMasterName: haud-produce-master
+       setMasterName: mymaster
        setMasterAddress : redis://localhost:6379
        setDatabase: 0
-       setSentinelAddresses: redis://127.0.0.1:26379,redis://127.0.0.1:26389      	
+       setSentinelAddresses: redis://127.0.0.1:26379,redis://127.0.0.1:26380      	
 authsvc:
   openid:
     wellKnownConfig:
