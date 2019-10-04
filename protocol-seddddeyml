@@ -1,3 +1,31 @@
+
+Skip to content
+Pull requests
+Issues
+Marketplace
+Explore
+@MVR8476
+Learn Git and GitHub without any code!
+
+Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
+
+0
+0
+
+    0
+
+MVR8476/haud
+Code
+Issues 0
+Pull requests 0
+Projects 0
+Wiki
+Security
+Insights
+Settings
+haud/protocol-service.yml
+@MVR8476 MVR8476 sd ce521db 1 hour ago
+129 lines (129 sloc) 4.81 KB
 # ===============================
 # = APPLICATION SERVER configurations
 # ===============================   
@@ -59,10 +87,10 @@ haud:
        setSlaveConnectionPoolSize: 64
        setMasterConnectionMinimumIdleSize: 24
        setMasterConnectionPoolSize: 64
-       setMasterName: haud-produce-master
+       setMasterName: mymaster
        setMasterAddress : redis://localhost:6379
        setDatabase: 0
-       setSentinelAddresses: redis://127.0.0.1:26379,redis://127.0.0.1:26389      	
+       setSentinelAddresses: redis://127.0.0.1:26379     	
 authsvc:
   openid:
     wellKnownConfig:
@@ -127,3 +155,18 @@ logging:
   file: ${logging.path}/haud-ldap-log.log
   pattern:
     file:   "%d{dd-MM-yyyy HH:mm:ss.SSS} %-1level  [%logger.%M - %L] - %msg%n"   
+
+    © 2019 GitHub, Inc.
+    Terms
+    Privacy
+    Security
+    Status
+    Help
+
+    Contact GitHub
+    Pricing
+    API
+    Training
+    Blog
+    About
+
