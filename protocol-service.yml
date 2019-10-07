@@ -20,6 +20,7 @@ haud:
   app: 
     uuid: X-HAUD-INTERNAL-UUID           
   redisson:
+    useSentinel: true
     setProducerList: haud-produce
     setProducerTopic: haud-produce-Topic
     sinkdataTopic: haud-sink-Topic
