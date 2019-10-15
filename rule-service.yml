@@ -1,10 +1,4 @@
 # ===============================
-# = HAUND UUID configurations
-# ===============================   
-haud:  
-  app: 
-    uuid: X-HAUD-INTERNAL-UUID
-# ===============================
 # = Rule-Service configurations
 # ===============================   
 spring:  
@@ -59,6 +53,8 @@ rule:
 
     
 haud:
+  app: 
+    uuid: X-HAUD-INTERNAL-UUID
   redisson:
     setAddress: redis://localhost:6379
     setClientName: null
