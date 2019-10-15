@@ -3,7 +3,7 @@
 # ===============================   
 haud:  
   app: 
-    uuid: X-HAUD-INTERNAL-UUID   
+    uuid: X-HAUD-INTERNAL-UUID
 # ===============================
 # = Rule-Service configurations
 # ===============================   
