@@ -4,9 +4,9 @@
 spring:  
   profiles: dev 
   datasource:
-    url: jdbc:mysql://localhost:8889/svallin_lteruledb
+    url: jdbc:mysql://localhost:3306/svallin_lteruledb
     username: root
-    password: root
+    password: mvrmvr
   driver-class-name: com.mysql.jdbc.Driver  
 # ===============================
 # = JPA configurations
@@ -24,7 +24,7 @@ rule:
   redis:    
     host: localhost
     port: 6379
-    password: root
+    password: mvrmvr
     usepool: true
     timeout: 60
     appIdGroupkey: haud-produce
@@ -46,7 +46,7 @@ rule:
     url: http://localhost:8081/element/group/
   flydb:
     database-version: 5.1.17
-    database-url: jdbc:mysql://localhost:8889/svallin_lteruledb
+    database-url: jdbc:mysql://localhost:3306/svallin_lteruledb
     database-user: root
     database-password: root  
     migrate: true
