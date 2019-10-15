@@ -1,8 +1,7 @@
 # ===============================
 # = Rule-Service configurations
 # ===============================   
-spring:  
-  profiles: dev 
+spring:    
   datasource:
     url: jdbc:mysql://localhost:3306/svallin_lteruledb
     username: root
