@@ -1,0 +1,77 @@
+# ===============================
+# = Rule-Service configurations
+# ===============================   
+spring:  
+  profiles: dev 
+  datasource:
+    url: jdbc:mysql://localhost:8889/svallin_lteruledb
+    username: root
+    password: root
+  driver-class-name: com.mysql.jdbc.Driver  
+# ===============================
+# = JPA configurations
+# ===============================
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      use-new-id-generator-mappings: false
+    generate-ddl: false
+    database-platform: MYSQL
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+rule:
+  redis:    
+    host: localhost
+    port: 6379
+    password: root
+    usepool: true
+    timeout: 60
+    appIdGroupkey: haud-produce
+    elementKey: haud-produce-association
+    subscriber:
+      topic: messageQueue
+    jedis:
+      pool:
+        max: 5
+        testOnBorrow: true
+        testOnReturn: true
+ 
+  pageable:    
+    maxsize: 10
+    number: 1
+  element:
+    url: http://localhost:8081/element/group/
+  application:
+    url: http://localhost:8081/element/group/
+  flydb:
+    database-version: 5.1.17
+    database-url: jdbc:mysql://localhost:8889/svallin_lteruledb
+    database-user: root
+    database-password: root  
+    migrate: true
+
+    
+haud:
+  redisson:
+    setAddress: redis://localhost:6379
+    setClientName: null
+    setIdleConnectionTimeout: 10000
+    setPingTimeout: 1000
+    setConnectTimeout: 1000
+    setTimeout: 1000
+    setRetryAttempts: 3
+    setRetryInterval: 1500
+    setReconnectionTimeout: 3000
+    setSubscriptionsPerConnection: 5
+    setSubscriptionConnectionMinimumIdleSize: 1
+    setSubscriptionConnectionPoolSize: 50
+    setConnectionMinimumIdleSize: 10
+    setConnectionPoolSize: 64
+    setThreads: 15
+    setNettyThreads: 150
+    setProducerList: haud-produce
+    setProducerTopic: haud-produce-Topic    
+    sinkdataTopic: haud-sink-Topic
+server:
+  port: 8084    
