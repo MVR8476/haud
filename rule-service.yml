@@ -1,4 +1,10 @@
 # ===============================
+# = HAUND UUID configurations
+# ===============================   
+haud:  
+  app: 
+    uuid: X-HAUD-INTERNAL-UUID   
+# ===============================
 # = Rule-Service configurations
 # ===============================   
 spring:  
