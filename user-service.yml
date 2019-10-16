@@ -63,6 +63,8 @@ usrsrv:
     restrictedSuperUsers: mayuresh.,Administrator	  
   patterns:
     password: "((?=.*[a-z])(?=.*\\d)(?=.*[A-Z])(?=.*[@#$%!]).{8,40})"
+  pagable:    
+    maxsize: 500	
 authsvc:
   openid:
     wellKnownConfig:
