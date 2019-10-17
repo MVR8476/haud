@@ -1,0 +1,117 @@
+# ===============================
+# = APPLICATION SERVER configurations
+# ===============================   
+server:
+  port: 8086
+  undertow: 
+    ioThreads: 15
+    workerThreads: 150
+    accesslog:
+      enabled: true
+  compression: 
+    enabled: true
+    mimeTypes: text/xml, text/css, text/html, application/json
+    minResponseSize: 4096  
+  servlet:
+    context-path: /haud  
+# ===============================
+# = HAUND UUID configurations
+# ===============================   
+haud:  
+  app: 
+    uuid: X-HAUD-INTERNAL-UUID   	
+spring:
+  main:
+    banner-mode: 'off' 
+  resources:
+    chain:
+      enabled: true  
+  mvc:
+    favicon:
+      enabled: false  
+  cache:
+    type: redis
+ruledatasource:      
+  datasource:   
+    jdbcUrl: jdbc:mysql://localhost:3306/svallin_lteruledb?createDatabaseIfNotExist=true&useSSL=true
+    username: root
+    password: mvrmvr       
+#driver-class-name: com.mysql.jdbc.Driver
+    
+associationdatasource:      
+  datasource:   
+    jdbcUrl: jdbc:mysql://localhost:3306/associationdb?createDatabaseIfNotExist=true&useSSL=true
+    username: root
+    password: mvrmvr       
+#driver-class-name: com.mysql.jdbc.Driver    
+# ===============================
+# = JPA configurations
+# ===============================
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      use-new-id-generator-mappings: false
+    generate-ddl: true
+    database-platform: MYSQL
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect  
+# ===============================
+# = Logging configurations
+# ===============================
+logging:
+  level:    
+   com.haud: DEBUG
+  path: log
+  file: ${logging.path}/haud-ldap-log.log
+  pattern:
+    file:   "%d{dd-MM-yyyy HH:mm:ss.SSS} %-1level  [%logger.%M - %L] - %msg%n"
+names:
+  format: 
+    ap: AP123    
+    cat2: CAT2123
+    cat3: CAT3123
+    decisionModule: DM123   
+haud: 
+  redis:    
+    host: localhost
+    port: 6379
+    password: mvr#1976 
+    usepool: true
+    timeout: 60
+    cdrkey: CDRCache
+    trxkey: TRXCache
+    subscriber:
+      topic: messageQueue
+    jedis:
+      pool:
+        max: 5
+        testOnBorrow: true
+        testOnReturn: true
+  kafka:
+    bootstrapAddress: 191.255.15.98:9092
+    groupId: packetslocal
+    batch: 
+      size: 1000
+      wait: 1
+      maxbytes: 500000000
+    
+    message:   
+      consumer: 
+        topic:
+          name: t_req,t_dec_req
+          partition: x-reply-partition
+      producer:
+        topic:
+          name: t_resp
+          
+      listener:
+        latch:
+          thread:
+            size: 5
+protobuff:
+  partials:
+    size: 2    
+decision:
+  apid: 4    
+  timeToLive: 30
