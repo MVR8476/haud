@@ -35,20 +35,17 @@ ruledatasource:
   datasource:   
     jdbcUrl: jdbc:mysql://localhost:3306/svallin_lteruledb?createDatabaseIfNotExist=true&useSSL=true
     username: root
-    password: mvrmvr       
-    
+    password: mvrmvr
 associationdatasource:      
   datasource:   
     jdbcUrl: jdbc:mysql://localhost:3306/associationdb?createDatabaseIfNotExist=true&useSSL=true
     username: root
-    password: mvrmvr       
-
+    password: mvrmvr
 decisonmoduledatasource:      
   datasource:   
     jdbcUrl: jdbc:mysql://localhost:3306/decision_moduledb?createDatabaseIfNotExist=true&useSSL=true
     username: root
-    password: mvrmvr       
-
+    password: mvrmvr
 # ===============================
 # = JPA configurations
 # ===============================
