@@ -44,10 +44,10 @@ decisonmoduledatasource:
 # = JPA configurations
 # ===============================
 decisonmodulejpa:
-  hibernate.hbm2ddl.auto: update 
-  hibernate.id.new_generator_mappings: false
-  hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
-  hibernate.show_sql: true   
+  autoupdate: update 
+  newIdMappings: false
+  dialect: org.hibernate.dialect.MySQL5Dialect
+  show_sql: true   
 # ===============================
 # = Logging configurations
 # ===============================
