@@ -4,17 +4,17 @@ spring:
   cache:
     type: redis
   protocoldatasource:
-    url: jdbc:mysql://localhost:8889/lteruledb
+    url: jdbc:mysql://localhost:3306/lteruledb
     username: root
     password: mvrmvr
     driver-class-name: com.mysql.jdbc.Driver
   ruledatasource:
-    url: jdbc:mysql://localhost:8889/svallin_lteruledb
+    url: jdbc:mysql://localhost:3306/svallin_lteruledb
     username: root
     password: mvrmvr
     driver-class-name: com.mysql.jdbc.Driver  
   associationdatasource:
-    url: jdbc:mysql://localhost:8889/associationdb
+    url: jdbc:mysql://localhost:3306/associationdb
     username: root
     password: mvrmvr
     driver-class-name: com.mysql.jdbc.Driver   
@@ -39,7 +39,7 @@ haud:
   redis:    
     host: localhost
     port: 6379
-    password: root 
+    password: mvr#1976 
     usepool: true
     timeout: 60
     cdrkey: CDRCache
