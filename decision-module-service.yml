@@ -25,6 +25,21 @@ spring:
       enabled: false  
   cache:
     type: redis
+  protocoldatasource:
+    url: jdbc:mysql://localhost:8889/lteruledb
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  ruledatasource:
+    url: jdbc:mysql://localhost:8889/svallin_lteruledb
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver  
+  associationdatasource:
+    url: jdbc:mysql://localhost:8889/associationdb
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver  	
 ruledatasource:      
   datasource:   
     jdbcUrl: jdbc:mysql://localhost:3306/svallin_lteruledb?createDatabaseIfNotExist=true&useSSL=true
