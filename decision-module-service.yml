@@ -108,8 +108,7 @@ decision:
 # = JPA configurations
 # ===============================
 decisonmodulejpa:
-  autoupdate: update 
-  newIdMappings: false
-  dialect: org.hibernate.dialect.MySQL5Dialect
-  show_sql: true     
-  
+   autoupdate: update 
+   newIdMappings: false
+   dialect: org.hibernate.dialect.MySQL5Dialect
+   show_sql: true 
