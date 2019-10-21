@@ -1,28 +1,6 @@
-# ===============================
-# = APPLICATION SERVER configurations
-# ===============================   
 server:
   port: 8086
-  undertow: 
-    ioThreads: 15
-    workerThreads: 150
-    accesslog:
-      enabled: true
-  compression: 
-    enabled: true
-    mimeTypes: text/xml, text/css, text/html, application/json
-    minResponseSize: 4096  
-  servlet:
-    context-path: /haud  
 spring:
-  main:
-    banner-mode: 'off' 
-  resources:
-    chain:
-      enabled: true  
-  mvc:
-    favicon:
-      enabled: false  
   cache:
     type: redis
   protocoldatasource:
@@ -39,7 +17,7 @@ spring:
     url: jdbc:mysql://localhost:8889/associationdb
     username: root
     password: mvrmvr
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver   
   jpa:
     show-sql: true
     hibernate:
@@ -48,56 +26,20 @@ spring:
     generate-ddl: true
     database-platform: MYSQL
     properties:
-      hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect 	
-ruledatasource:      
-  datasource:   
-    jdbcUrl: jdbc:mysql://localhost:3306/svallin_lteruledb?createDatabaseIfNotExist=true&useSSL=true
-    username: root
-    password: mvrmvr
-associationdatasource:      
-  datasource:   
-    jdbcUrl: jdbc:mysql://localhost:3306/associationdb?createDatabaseIfNotExist=true&useSSL=true
-    username: root
-    password: mvrmvr
-decisonmoduledatasource:      
-  datasource:   
-    jdbcUrl: jdbc:mysql://localhost:3306/decision_moduledb?createDatabaseIfNotExist=true&useSSL=true
-    username: root
-    password: mvrmvr
-# ===============================
-# = JPA configurations
-# ===============================
-decisonmodulejpa:
-  hibernate.hbm2ddl.auto: update 
-  hibernate.id.new_generator_mappings: false
-  hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
-  hibernate.show_sql: true   
-# ===============================
-# = Logging configurations
-# ===============================
-logging:
-  level:    
-   com.haud: DEBUG
-  path: log
-  file: ${logging.path}/haud-ldap-log.log
-  pattern:
-    file:   "%d{dd-MM-yyyy HH:mm:ss.SSS} %-1level  [%logger.%M - %L] - %msg%n"
+      hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 names:
   format: 
     ap: AP123    
     cat2: CAT2123
     cat3: CAT3123
     decisionModule: DM123   
-# ===============================
-# = HAUND UUID configurations
-# ===============================   
-haud:  
+haud: 
   app: 
-    uuid: X-HAUD-INTERNAL-UUID   
+    uuid: X-HAUD-INTERNAL-UUID
   redis:    
     host: localhost
     port: 6379
-    password: mvr#1976 
+    password: root 
     usepool: true
     timeout: 60
     cdrkey: CDRCache
