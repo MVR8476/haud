@@ -17,6 +17,11 @@ spring:
     url: jdbc:mysql://localhost:3306/associationdb
     username: root
     password: mvrmvr
+    driver-class-name: com.mysql.jdbc.Driver 
+  decisonmoduledatasource:
+    url: jdbc:mysql://localhost:3306/decision_moduledb
+    username: root
+    password: mvrmvr
     driver-class-name: com.mysql.jdbc.Driver   
   jpa:
     show-sql: true
