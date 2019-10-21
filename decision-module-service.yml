@@ -38,12 +38,16 @@ associationdatasource:
 decisonmoduledatasource:      
   datasource:   
     jdbcUrl: jdbc:mysql://localhost:3306/decision_moduledb?createDatabaseIfNotExist=true&useSSL=true
-  username: root
-  password: mvrmvr
-  autoUpdate: update 
-  newIdMappings: false
-  dialect: org.hibernate.dialect.MySQL5Dialect
-  show_sql: true 
+    username: root
+    password: mvrmvr
+# ===============================
+# = JPA configurations
+# ===============================
+decisonmodulejpa:
+  hibernate.hbm2ddl.auto: update 
+  hibernate.id.new_generator_mappings: false
+  hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+  hibernate.show_sql: true   
 # ===============================
 # = Logging configurations
 # ===============================
