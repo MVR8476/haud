@@ -39,7 +39,16 @@ spring:
     url: jdbc:mysql://localhost:8889/associationdb
     username: root
     password: root
-    driver-class-name: com.mysql.jdbc.Driver  	
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      show-sql: true
+      ddl-auto: update
+    generate-ddl: true
+    database-platform: MYSQL
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect 	
 ruledatasource:      
   datasource:   
     jdbcUrl: jdbc:mysql://localhost:3306/svallin_lteruledb?createDatabaseIfNotExist=true&useSSL=true
