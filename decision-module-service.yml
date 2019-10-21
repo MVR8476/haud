@@ -36,26 +36,27 @@ ruledatasource:
     jdbcUrl: jdbc:mysql://localhost:3306/svallin_lteruledb?createDatabaseIfNotExist=true&useSSL=true
     username: root
     password: mvrmvr       
-#driver-class-name: com.mysql.jdbc.Driver
     
 associationdatasource:      
   datasource:   
     jdbcUrl: jdbc:mysql://localhost:3306/associationdb?createDatabaseIfNotExist=true&useSSL=true
     username: root
     password: mvrmvr       
-#driver-class-name: com.mysql.jdbc.Driver    
+
+decisonmoduledatasource:      
+  datasource:   
+    jdbcUrl: jdbc:mysql://localhost:3306/decision_moduledb?createDatabaseIfNotExist=true&useSSL=true
+    username: root
+    password: mvrmvr       
+
 # ===============================
 # = JPA configurations
 # ===============================
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-      use-new-id-generator-mappings: false
-    generate-ddl: true
-    database-platform: MYSQL
-    properties:
-      hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect  
+decisonmodulejpa:
+  hibernate.hbm2ddl.auto: update 
+  hibernate.id.new_generator_mappings: false
+  hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+  hibernate.show_sql: true   
 # ===============================
 # = Logging configurations
 # ===============================
