@@ -19,7 +19,7 @@ spring:
     password: mvrmvr
     driver-class-name: com.mysql.jdbc.Driver 
   decisonmoduledatasource:
-    url: jdbc:mysql://localhost:3306/decision_moduledb?createDatabaseIfNotExist=true&useSSL=true
+    url: jdbc:mysql://localhost:3306/decision_moduledb
     username: root
     password: mvrmvr
     driver-class-name: com.mysql.jdbc.Driver   
