@@ -81,6 +81,13 @@ haud:
 protobuff:
   partials:
     size: 2    
+cron:
+  processor:
+    interval: 1000
+  element:
+    interval: 1000
+  rule:
+    interval: 1000      
 decision:
   apid: 4    
   timeToLive: 30
