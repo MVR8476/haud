@@ -75,8 +75,20 @@ haud:
      setNettyThreads: 150
      setPassword: mvr#1976		
   kafka:
-#bootstrapAddress: 191.255.15.98:9092    
-    bootstrapAddress: localhost:9092
+    bootstrapAddress: 191.255.15.98:9092
+    ConsumerConfig:
+       heartbeatinterval: 5_000   
+       isolationlevel: read_committed 
+       autoresetconfig: earliest 
+       enableautoconfig: true 
+       autocomitconfig: 100 
+       sessiontimeout: 15000 
+    ProducerConfig: 
+       retriesconfig: 0
+       batchsizeconfig: 4096
+       lingerconfig: 1
+       buffermemoryconfig: 40960	
+#bootstrapAddress: localhost:9092
     groupId: packetslocalMayuresh
     batch: 
       size: 1000
