@@ -13,8 +13,8 @@ server:
     minResponseSize: 4096  
   
 spring:
-  cache:
-    type: redis
+  #cache:
+    #type: redis
   protocoldatasource:
     url: jdbc:mysql://localhost:3306/lteruledb
     username: root
