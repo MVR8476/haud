@@ -65,7 +65,7 @@ haud:
         testOnBorrow: true
         testOnReturn: true
   redisson:
-     useSentinel: true
+     useSentinel: false
      setAddress: redis://localhost:6379
      setClientName: null
      setIdleConnectionTimeout: 10000
