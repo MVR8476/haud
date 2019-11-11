@@ -1,5 +1,17 @@
+# = APPLICATION SERVER configurations
+# ===============================   
 server:
-  port: 8086
+  port: 8086 
+  undertow: 
+    ioThreads: 15
+    workerThreads: 150
+    accesslog:
+      enabled: true
+  compression: 
+    enabled: true
+    mimeTypes: text/xml, text/css, text/html, application/json
+    minResponseSize: 4096  
+  
 spring:
   cache:
     type: redis
@@ -17,12 +29,8 @@ spring:
     url: jdbc:mysql://localhost:3306/associationdb
     username: root
     password: mvrmvr
-    driver-class-name: com.mysql.jdbc.Driver 
-  decisonmoduledatasource:
-    url: jdbc:mysql://localhost:3306/decision_moduledb
-    username: root
-    password: mvrmvr
-    driver-class-name: com.mysql.jdbc.Driver   
+    driver-class-name: com.mysql.jdbc.Driver
+ 
   jpa:
     show-sql: true
     hibernate:
@@ -56,7 +64,8 @@ haud:
         max: 5
         testOnBorrow: true
         testOnReturn: true
- redisson:
+  redisson:
+     useSentinel: true
      setAddress: redis://localhost:6379
      setClientName: null
      setIdleConnectionTimeout: 10000
@@ -73,10 +82,32 @@ haud:
      setConnectionPoolSize: 64
      setThreads: 15
      setNettyThreads: 150
-     setPassword: mvr#1976		
+     setPassword: mvr#1976   
+     sentinelServersConfig:
+       setIdleConnectionTimeout: 10000
+       setConnectTimeout: 10000
+       setTimeout: 3000
+       setRetryAttempts: 3
+       setRetryInterval: 1500
+       setFailedSlaveReconnectionInterval: 3000
+       setFailedSlaveCheckInterval: 60000
+       setPassword: mvr#1976
+       setSubscriptionsPerConnection: 5
+       setClientName: null
+       setThreads: 16
+       setNettyThreads: 32
+       setSubscriptionConnectionMinimumIdleSize: 1
+       setSubscriptionConnectionPoolSize: 50
+       setSlaveConnectionMinimumIdleSize: 24
+       setSlaveConnectionPoolSize: 64
+       setMasterConnectionMinimumIdleSize: 24
+       setMasterConnectionPoolSize: 64
+       setMasterName: haud-produce-master       
+       setDatabase: 0
+       setSentinelAddresses: redis://127.0.0.1:26379,redis://127.0.0.1:26380,redis://127.0.0.1:26381        
   kafka:
     #bootstrapAddress: localhost:9092
-    bootstrapAddress: 191.255.15.98:9092	
+    bootstrapAddress: 191.255.15.98:9092  
     ConsumerConfig:
        heartbeatinterval: 5000   
        isolationlevel: read_committed 
@@ -88,7 +119,7 @@ haud:
        retriesconfig: 0
        batchsizeconfig: 4096
        lingerconfig: 1
-       buffermemoryconfig: 40960	
+       buffermemoryconfig: 40960  
     groupId: packetslocalMayuresh
     batch: 
       size: 1000
@@ -102,7 +133,7 @@ haud:
           partition: x-reply-partition
       producer:
         topic:
-          name: t_req		  
+          name: t_req     
           
       listener:
         latch:
