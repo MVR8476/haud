@@ -56,39 +56,9 @@ haud:
         max: 5
         testOnBorrow: true
         testOnReturn: true
- redisson:
-     setAddress: redis://localhost:6379
-     setClientName: null
-     setIdleConnectionTimeout: 10000
-     setPingTimeout: 1000
-     setConnectTimeout: 1000
-     setTimeout: 1000
-     setRetryAttempts: 3
-     setRetryInterval: 1500
-     setReconnectionTimeout: 3000
-     setSubscriptionsPerConnection: 5
-     setSubscriptionConnectionMinimumIdleSize: 1
-     setSubscriptionConnectionPoolSize: 50
-     setConnectionMinimumIdleSize: 10
-     setConnectionPoolSize: 64
-     setThreads: 15
-     setNettyThreads: 150
-     setPassword: mvr#1976		
   kafka:
-    #bootstrapAddress: localhost:9092
-    bootstrapAddress: 191.255.15.98:9092	
-    ConsumerConfig:
-       heartbeatinterval: 5000   
-       isolationlevel: read_committed 
-       autoresetconfig: earliest 
-       enableautoconfig: true 
-       autocomitconfig: 100 
-       sessiontimeout: 15000 
-    ProducerConfig: 
-       retriesconfig: 0
-       batchsizeconfig: 4096
-       lingerconfig: 1
-       buffermemoryconfig: 40960	
+#bootstrapAddress: 191.255.15.98:9092    
+    bootstrapAddress: localhost:9092
     groupId: packetslocalMayuresh
     batch: 
       size: 1000
