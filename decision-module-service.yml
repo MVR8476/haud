@@ -152,3 +152,10 @@ cron:
 decision:
   apid: 4    
   timeToLive: 30
+executor:
+  poolSize: 1000
+  corePoolSize: 1000
+  queueCapacity: 1000  
+  waitForTaskCompleteOnShutDown: true
+  schedulerDaemon: true
+  executorDaemon: true
