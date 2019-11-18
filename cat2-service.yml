@@ -1,0 +1,75 @@
+#! ===============================
+#! = Cat2-Service configurations
+#! ===============================
+
+cat2:
+  stats:  
+    dumpdelay: 10000
+    dumpperiod: 10000
+    threadpoolsize: 1
+  flydb:
+    database-version: 5.1.17
+    database-url: jdbc:mysql://db-service:3306/svalinn_svc_cat2_db?createDatabaseIfNotExist=true&useSSL=true
+    database-user: sys_svc_cat2
+    database-password: sys_svc_cat2
+    migrate: true
+  redis:
+    host: redis
+    port: 6379
+    password: password123
+    usepool: true
+    timeout: 60
+    ulakey: ULACache
+    ulrkey: ULRCache
+    trxkey: TrxCache
+    subscriber:
+      topic: messageQueue
+    jedis:
+      pool:
+        max: 5
+        testOnBorrow: true
+        testOnReturn: true
+  kafka:
+    bootstrapAddress: kafka1:9092
+    groupId: cat2-packets
+    batch:
+      size: 1000
+      wait: 1
+      maxbytes: 500000000
+
+    message:
+      producer:
+         topic:
+            name: t_dec_req
+      consumer:
+        topic:
+            name: t_req
+            partitions: x-reply-partition
+      listener:
+        latch:
+          thread:
+            size: 5
+  filter:
+    trxcache:
+      flag: true
+    apid: 2
+    serviceId: 1
+    serviceInst: 1
+
+spring:
+  cache:
+    type: redis
+  datasource:
+    url: jdbc:mysql://db-service:3306/svalinn_svc_cat2_db?createDatabaseIfNotExist=true&useSSL=true
+    username: sys_svc_cat2
+    password: sys_svc_cat2
+  driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      show-sql: true
+    generate-ddl: false
+    database-platform: MYSQL
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
