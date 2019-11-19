@@ -15,6 +15,8 @@ server:
 spring:
   #cache:
     #type: redis
+   redis:
+    password: mvr#1976	
   protocoldatasource:
     url: jdbc:mysql://localhost:3306/lteruledb
     username: root
@@ -160,3 +162,5 @@ executor:
   waitForTaskCompleteOnShutDown: true
   schedulerDaemon: true
   executorDaemon: true
+  
+https://www.jianshu.com/p/3babbeb81290  
