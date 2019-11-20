@@ -9,9 +9,9 @@ cat2:
     threadpoolsize: 1
   flydb:
     database-version: 5.1.17
-    database-url: jdbc:mysql://db-service:3306/svalinn_svc_cat2_db?createDatabaseIfNotExist=true&useSSL=true
-    database-user: sys_svc_cat2
-    database-password: sys_svc_cat2
+    database-url: jdbc:mysql://localhost:3306/svalinn_svc_cat2_db?createDatabaseIfNotExist=true&useSSL=true
+    database-user: root
+    database-password: mvrmvr
     migrate: true
   redis:
     host: redis
@@ -29,8 +29,81 @@ cat2:
         max: 5
         testOnBorrow: true
         testOnReturn: true
+haud: 
+  app: 
+    uuid: X-HAUD-INTERNAL-UUID
+  redis:    
+    host: localhost
+    port: 6379
+    password: mvr#1976 
+    usepool: true
+    timeout: 60
+    cdrkey: CDRCache
+    trxkey: TRXCache
+    subscriber:
+      topic: messageQueue
+    jedis:
+      pool:
+        max: 5
+        testOnBorrow: true
+        testOnReturn: true
+  redisson:
+     useSentinel: false
+     setAddress: redis://10.0.28.131:6379
+     setClientName: null
+     setIdleConnectionTimeout: 10000
+     setPingTimeout: 1000
+     setConnectTimeout: 1000
+     setTimeout: 1000
+     setRetryAttempts: 3
+     setRetryInterval: 1500
+     setReconnectionTimeout: 3000
+     setSubscriptionsPerConnection: 5
+     setSubscriptionConnectionMinimumIdleSize: 1
+     setSubscriptionConnectionPoolSize: 50
+     setConnectionMinimumIdleSize: 10
+     setConnectionPoolSize: 64
+     setThreads: 15
+     setNettyThreads: 150
+     setPassword: mvr#1976   
+     sentinelServersConfig:
+       setIdleConnectionTimeout: 10000
+       setConnectTimeout: 10000
+       setTimeout: 3000
+       setRetryAttempts: 3
+       setRetryInterval: 1500
+       setFailedSlaveReconnectionInterval: 3000
+       setFailedSlaveCheckInterval: 60000
+       setPassword: mvr#1976
+       setSubscriptionsPerConnection: 5
+       setClientName: null
+       setThreads: 16
+       setNettyThreads: 32
+       setSubscriptionConnectionMinimumIdleSize: 1
+       setSubscriptionConnectionPoolSize: 50
+       setSlaveConnectionMinimumIdleSize: 24
+       setSlaveConnectionPoolSize: 64
+       setMasterConnectionMinimumIdleSize: 24
+       setMasterConnectionPoolSize: 64
+       setMasterName: haud-produce-master       
+       setDatabase: 0
+       setSentinelAddresses: redis://127.0.0.1:26379,redis://127.0.0.1:26380,redis://127.0.0.1:26381		
   kafka:
-    bootstrapAddress: kafka1:9092
+    #bootstrapAddress: kafka1:9092
+	#bootstrapAddress: 191.255.15.98:9092  
+    bootstrapAddress: localhost:9092
+    ConsumerConfig:
+       heartbeatinterval: 5000   
+       isolationlevel: read_committed 
+       autoresetconfig: earliest 
+       enableautoconfig: true 
+       autocomitconfig: 100 
+       sessiontimeout: 15000 
+    ProducerConfig: 
+       retriesconfig: 0
+       batchsizeconfig: 4096
+       lingerconfig: 1
+       buffermemoryconfig: 40960 	
     groupId: cat2-packets
     batch:
       size: 1000
@@ -60,9 +133,9 @@ spring:
   cache:
     type: redis
   datasource:
-    url: jdbc:mysql://db-service:3306/svalinn_svc_cat2_db?createDatabaseIfNotExist=true&useSSL=true
-    username: sys_svc_cat2
-    password: sys_svc_cat2
+    url: jdbc:mysql://localhost:3306/svalinn_svc_cat2_db?createDatabaseIfNotExist=true&useSSL=true
+    username: root
+    password: mvrmvr
   driver-class-name: com.mysql.jdbc.Driver
   jpa:
     show-sql: true
