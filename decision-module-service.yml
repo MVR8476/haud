@@ -53,7 +53,7 @@ haud:
   app: 
     uuid: X-HAUD-INTERNAL-UUID
   redis:    
-    host: 10.0.28.131
+    host: localhost
     port: 6379
     password: mvr#1976   
     #host: 191.255.15.160
