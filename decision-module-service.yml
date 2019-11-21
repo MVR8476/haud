@@ -89,8 +89,8 @@ haud:
      setConnectionPoolSize: 64
      setThreads: 15
      setNettyThreads: 150
-     setPassword: mvr#1976   
-     #setPassword: password123
+     #setPassword: mvr#1976   
+     setPassword: password123
      sentinelServersConfig:
        setIdleConnectionTimeout: 10000
        setConnectTimeout: 10000
@@ -99,7 +99,8 @@ haud:
        setRetryInterval: 1500
        setFailedSlaveReconnectionInterval: 3000
        setFailedSlaveCheckInterval: 60000
-       setPassword: mvr#1976
+       #setPassword: mvr#1976
+       setPassword: password123
        setSubscriptionsPerConnection: 5
        setClientName: null
        setThreads: 16
