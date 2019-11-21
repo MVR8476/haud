@@ -16,7 +16,8 @@ spring:
   #cache:
     #type: redis
   redis:
-    password: mvr#1976	
+    #password: mvr#1976
+    password: password123  
   protocoldatasource:
     url: jdbc:mysql://localhost:3306/lteruledb
     username: root
@@ -72,7 +73,7 @@ haud:
   redisson:
      useSentinel: true
      #setAddress: redis://10.0.28.131:6379
-	 setAddress: redis://191.255.15.160:27739
+     setAddress: redis://191.255.15.160:27739
      setClientName: null
      setIdleConnectionTimeout: 10000
      setPingTimeout: 1000
@@ -89,7 +90,7 @@ haud:
      setThreads: 15
      setNettyThreads: 150
      #setPassword: mvr#1976   
-	 setPassword: password123
+     setPassword: password123
      sentinelServersConfig:
        setIdleConnectionTimeout: 10000
        setConnectTimeout: 10000
