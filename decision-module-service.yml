@@ -55,10 +55,10 @@ haud:
   redis:    
     host: localhost
     port: 6379
-    #password: mvr#1976   
+    password: mvr#1976   
     #host: 191.255.15.160
     #port: 27739
-    password: password123 
+    #password: password123 
     usepool: true
     timeout: 60
     cdrkey: CDRCache
