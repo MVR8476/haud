@@ -113,7 +113,7 @@ haud:
        setMasterName: haud-produce-master       
        setDatabase: 0
        #setSentinelAddresses: redis://127.0.0.1:26379,redis://127.0.0.1:26380,redis://127.0.0.1:26381      redis://191.255.15.160:27739 
-       setSentinelAddresses: redis://191.255.15.160:27739 
+       setSentinelAddresses: redis://191.255.15.160:27739,redis://191.255.15.160:27740 
   kafka:
     #bootstrapAddress: 191.255.15.98:9092  
     bootstrapAddress: localhost:9092
