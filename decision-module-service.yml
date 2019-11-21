@@ -53,11 +53,11 @@ haud:
   app: 
     uuid: X-HAUD-INTERNAL-UUID
   redis:    
-    #host: localhost
-    #port: 6379
+    host: localhost
+    port: 6379
     #password: mvr#1976   
-    host: 191.255.15.160
-    port: 27739
+    #host: 191.255.15.160
+    #port: 27739
     password: password123 
     usepool: true
     timeout: 60
@@ -72,8 +72,8 @@ haud:
         testOnReturn: true
   redisson:
      useSentinel: false
-     #setAddress: redis://10.0.28.131:6379
-     setAddress: redis://191.255.15.160:16379
+     setAddress: redis://10.0.28.131:6379
+     #setAddress: redis://191.255.15.160:16379
      setClientName: null
      setIdleConnectionTimeout: 10000
      setPingTimeout: 1000
@@ -89,8 +89,8 @@ haud:
      setConnectionPoolSize: 64
      setThreads: 15
      setNettyThreads: 150
-     #setPassword: mvr#1976   
-     setPassword: password123
+     setPassword: mvr#1976   
+     #setPassword: password123
      sentinelServersConfig:
        setIdleConnectionTimeout: 10000
        setConnectTimeout: 10000
