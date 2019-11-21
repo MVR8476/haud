@@ -16,7 +16,8 @@ spring:
   #cache:
     #type: redis
   redis:
-    password: mvr#1976	
+    #password: mvr#1976
+    password: password123  
   protocoldatasource:
     url: jdbc:mysql://localhost:3306/lteruledb
     username: root
@@ -54,7 +55,10 @@ haud:
   redis:    
     host: localhost
     port: 6379
-    password: mvr#1976 
+    password: mvr#1976   
+    #host: 191.255.15.160
+    #port: 27739
+    #password: password123 
     usepool: true
     timeout: 60
     cdrkey: CDRCache
@@ -69,6 +73,7 @@ haud:
   redisson:
      useSentinel: false
      setAddress: redis://10.0.28.131:6379
+     #setAddress: redis://191.255.15.160:16379
      setClientName: null
      setIdleConnectionTimeout: 10000
      setPingTimeout: 1000
@@ -85,6 +90,7 @@ haud:
      setThreads: 15
      setNettyThreads: 150
      setPassword: mvr#1976   
+     #setPassword: password123
      sentinelServersConfig:
        setIdleConnectionTimeout: 10000
        setConnectTimeout: 10000
@@ -106,7 +112,8 @@ haud:
        setMasterConnectionPoolSize: 64
        setMasterName: haud-produce-master       
        setDatabase: 0
-       setSentinelAddresses: redis://127.0.0.1:26379,redis://127.0.0.1:26380,redis://127.0.0.1:26381        
+       setSentinelAddresses: redis://10.0.28.131:26379,redis://10.0.28.131:26380,redis://10.0.28.131:26381
+       #setSentinelAddresses: redis://191.255.15.160:27739,redis://191.255.15.160:27740 
   kafka:
     #bootstrapAddress: 191.255.15.98:9092  
     bootstrapAddress: localhost:9092
@@ -162,4 +169,3 @@ executor:
   waitForTaskCompleteOnShutDown: true
   schedulerDaemon: true
   executorDaemon: true
-  
