@@ -71,7 +71,7 @@ haud:
         testOnBorrow: true
         testOnReturn: true
   redisson:
-     useSentinel: ture
+     useSentinel: true
      #setAddress: redis://10.0.28.131:6379
      setAddress: redis://191.255.15.160:16379
      setClientName: null
