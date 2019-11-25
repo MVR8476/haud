@@ -61,11 +61,6 @@ haud:
     database-password: mvrmvr
     migrate: true
   redisson:
-     host: 191.255.15.160
-     port: 27739
-     password: password123 
-     usepool: true
-     timeout: 60
      ulakey: ULACache
      ulrkey: ULRCache
      trxkey: TrxCache
