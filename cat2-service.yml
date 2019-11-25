@@ -59,18 +59,18 @@ haud:
     database-url: jdbc:mysql://localhost:3306/svalinn_svc_cat2_db?createDatabaseIfNotExist=true&useSSL=true
     database-user: root
     database-password: mvrmvr
-    migrate: true 
+    migrate: true
   redisson:
-    host: 191.255.15.160
-    port: 27739
-    password: password123 
-    usepool: true
-    timeout: 60
-    ulakey: ULACache
-    ulrkey: ULRCache
-    trxkey: TrxCache
-    subscriber:
-      topic: messageQueue
+     host: 191.255.15.160
+     port: 27739
+     password: password123 
+     usepool: true
+     timeout: 60
+     ulakey: ULACache
+     ulrkey: ULRCache
+     trxkey: TrxCache
+     subscriber:
+       topic: messageQueue
      useSentinel: false
      setAddress: redis://191.255.15.160:16379
      setClientName: null
