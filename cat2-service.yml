@@ -60,7 +60,7 @@ haud:
     database-user: root
     database-password: mvrmvr
     migrate: true 
-  redis:    
+  redisson:
     host: 191.255.15.160
     port: 27739
     password: password123 
@@ -71,12 +71,6 @@ haud:
     trxkey: TrxCache
     subscriber:
       topic: messageQueue
-    jedis:
-      pool:
-        max: 5
-        testOnBorrow: true
-        testOnReturn: true
-  redisson:
      useSentinel: false
      setAddress: redis://191.255.15.160:16379
      setClientName: null
