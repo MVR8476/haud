@@ -29,7 +29,7 @@ spring:
   cache:
     type: redis
   redis:
-    password: password123
+    password: mvr#1976
   datasource:
     url: jdbc:mysql://localhost:3306/svalinn_svc_cat2_db?createDatabaseIfNotExist=true&useSSL=true
     username: root
@@ -67,7 +67,7 @@ haud:
      subscriber:
        topic: messageQueue
      useSentinel: false
-     setAddress: redis://191.255.15.160:16379
+     setAddress: redis://10.0.28.131:6379
      setClientName: null
      setIdleConnectionTimeout: 10000
      setPingTimeout: 1000
@@ -83,7 +83,7 @@ haud:
      setConnectionPoolSize: 64
      setThreads: 15
      setNettyThreads: 150
-     setPassword: password123   
+     setPassword: mvr#1976   
      sentinelServersConfig:
        setIdleConnectionTimeout: 10000
        setConnectTimeout: 10000
@@ -92,7 +92,7 @@ haud:
        setRetryInterval: 1500
        setFailedSlaveReconnectionInterval: 3000
        setFailedSlaveCheckInterval: 60000
-       setPassword: password123
+       setPassword: mvr#1976
        setSubscriptionsPerConnection: 5
        setClientName: null
        setThreads: 16
@@ -105,7 +105,7 @@ haud:
        setMasterConnectionPoolSize: 64
        setMasterName: haud-produce-master       
        setDatabase: 0
-       setSentinelAddresses: redis://191.255.15.160:27739,redis://191.255.15.160:27740
+       setSentinelAddresses: redis://127.0.0.1:26379,redis://127.0.0.1:26380,redis://127.0.0.1:26381
   kafka:
     #bootstrapAddress: kafka1:9092
     #bootstrapAddress: 191.255.15.98:9092  
