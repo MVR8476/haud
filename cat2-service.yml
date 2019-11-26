@@ -67,7 +67,7 @@ haud:
      subscriber:
        topic: messageQueue
      useSentinel: false
-     setAddress: redis://191.255.15.160:16379
+     setAddress: redis://10.0.28.131:6379
      setClientName: null
      setIdleConnectionTimeout: 10000
      setPingTimeout: 1000
@@ -83,7 +83,7 @@ haud:
      setConnectionPoolSize: 64
      setThreads: 15
      setNettyThreads: 150
-     setPassword: password123   
+     setPassword: mvr#1976   
      sentinelServersConfig:
        setIdleConnectionTimeout: 10000
        setConnectTimeout: 10000
@@ -92,7 +92,7 @@ haud:
        setRetryInterval: 1500
        setFailedSlaveReconnectionInterval: 3000
        setFailedSlaveCheckInterval: 60000
-       setPassword: password123
+       setPassword: mvr#1976
        setSubscriptionsPerConnection: 5
        setClientName: null
        setThreads: 16
