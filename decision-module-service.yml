@@ -52,6 +52,10 @@ names:
 haud: 
   app: 
     uuid: X-HAUD-INTERNAL-UUID
+  stats:  
+    dumpdelay: 10000
+    dumpperiod: 10000
+    threadpoolsize: 1	
   redis:    
     #host: 10.0.28.131
     #port: 6379
