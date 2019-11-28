@@ -86,8 +86,8 @@ haud:
      setSubscriptionConnectionPoolSize: 50
      setConnectionMinimumIdleSize: 10
      setConnectionPoolSize: 64
-     setThreads: 16
-     setNettyThreads: 32
+     setThreads: 1
+     setNettyThreads: 1
      setPassword: mvr#1976   
      sentinelServersConfig:
        setIdleConnectionTimeout: 10000
@@ -100,8 +100,8 @@ haud:
        setPassword: mvr#1976
        setSubscriptionsPerConnection: 5
        setClientName: null
-       setThreads: 16
-       setNettyThreads: 32
+       setThreads: 1
+       setNettyThreads: 1
        setSubscriptionConnectionMinimumIdleSize: 1
        setSubscriptionConnectionPoolSize: 50
        setSlaveConnectionMinimumIdleSize: 24
