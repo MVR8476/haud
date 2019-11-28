@@ -159,10 +159,10 @@ decision:
   apid: 4    
   timeToLive: 30
 executor:
-  poolSize: 1000
-  maxPoolSize: 1000
-  corePoolSize: 1000
-  queueCapacity: 1000  
+  poolSize: 1
+  maxPoolSize: 1
+  corePoolSize: 1
+  queueCapacity: 1  
   waitForTaskCompleteOnShutDown: true
   schedulerDaemon: true
   executorDaemon: true
