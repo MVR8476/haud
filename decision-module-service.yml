@@ -51,6 +51,10 @@ names:
 haud: 
   app: 
     uuid: X-HAUD-INTERNAL-UUID
+  stats:  
+    dumpdelay: 10000
+    dumpperiod: 10000
+    threadpoolsize: 1
   redis:    
     host: localhost
     port: 6379
@@ -82,8 +86,8 @@ haud:
      setSubscriptionConnectionPoolSize: 50
      setConnectionMinimumIdleSize: 10
      setConnectionPoolSize: 64
-     setThreads: 15
-     setNettyThreads: 150
+     setThreads: 16
+     setNettyThreads: 32
      setPassword: mvr#1976   
      sentinelServersConfig:
        setIdleConnectionTimeout: 10000
