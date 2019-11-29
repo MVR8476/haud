@@ -78,22 +78,22 @@ haud:
      setPingTimeout: 1000
      setConnectTimeout: 1000
      setTimeout: 1000
-     setRetryAttempts: 3
+     setRetryAttempts: 1
      setRetryInterval: 1500
      setReconnectionTimeout: 3000
      setSubscriptionsPerConnection: 5
      setSubscriptionConnectionMinimumIdleSize: 1
      setSubscriptionConnectionPoolSize: 50
      setConnectionMinimumIdleSize: 10
-     setConnectionPoolSize: 32
-     setThreads: 1
-     setNettyThreads: 1
+     setConnectionPoolSize: 64
+     setThreads: 0
+     setNettyThreads: 0
      setPassword: mvr#1976   
      sentinelServersConfig:
        setIdleConnectionTimeout: 10000
        setConnectTimeout: 10000
        setTimeout: 3000
-       setRetryAttempts: 3
+       setRetryAttempts: 1
        setRetryInterval: 1500
        setFailedSlaveReconnectionInterval: 3000
        setFailedSlaveCheckInterval: 60000
