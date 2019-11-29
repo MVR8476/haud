@@ -164,6 +164,6 @@ executor:
   corePoolSize: 1
   queueCapacity: 1  
   waitForTaskCompleteOnShutDown: true
-  schedulerDaemon: true
-  executorDaemon: true
+  schedulerDaemon: false
+  executorDaemon: false
   
