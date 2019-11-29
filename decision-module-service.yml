@@ -109,7 +109,8 @@ haud:
        autoresetconfig: earliest 
        enableautoconfig: true 
        autocomitconfig: 100 
-       sessiontimeout: 15000 
+       sessiontimeout: 15000
+       concurrencycount: 1 
     ProducerConfig: 
        retriesconfig: 0
        batchsizeconfig: 4096

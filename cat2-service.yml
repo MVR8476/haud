@@ -1,7 +1,7 @@
-# ===============================
 # = APPLICATION SERVER configurations
 # ===============================   
 server:
+  port: 8086 
   undertow: 
     ioThreads: 15
     workerThreads: 150
@@ -11,42 +11,43 @@ server:
     enabled: true
     mimeTypes: text/xml, text/css, text/html, application/json
     minResponseSize: 4096  
-  servlet:
-    context-path: /haud
-
-# ===============================
-# = Hibernate datasource
-# ===============================
+  
 spring:
-  main:
-    banner-mode: 'off' 
-  resources:
-    chain:
-      enabled: true  
-  mvc:
-    favicon:
-      enabled: false 
-  cache:
-    type: redis
+  #cache:
+    #type: redis
   redis:
-    password: password123
-  datasource:
-    url: jdbc:mysql://localhost:3306/svalinn_svc_cat2_db?createDatabaseIfNotExist=true&useSSL=true
+    password: mvr#1976  
+  protocoldatasource:
+    url: jdbc:mysql://localhost:3306/lteruledb
     username: root
     password: mvrmvr
-  driver-class-name: com.mysql.jdbc.Driver
-# ===============================
-# = JPA configurations
-# ===============================  
+    driver-class-name: com.mysql.jdbc.Driver
+  ruledatasource:
+    url: jdbc:mysql://localhost:3306/svallin_lteruledb
+    username: root
+    password: mvrmvr
+    driver-class-name: com.mysql.jdbc.Driver  
+  associationdatasource:
+    url: jdbc:mysql://localhost:3306/associationdb
+    username: root
+    password: mvrmvr
+    driver-class-name: com.mysql.jdbc.Driver
+ 
   jpa:
     show-sql: true
     hibernate:
       show-sql: true
-    generate-ddl: false
+      ddl-auto: update
+    generate-ddl: true
     database-platform: MYSQL
     properties:
       hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-
+names:
+  format: 
+    ap: AP123    
+    cat2: CAT2123
+    cat3: CAT3123
+    decisionModule: DM123   
 haud: 
   app: 
     uuid: X-HAUD-INTERNAL-UUID
@@ -54,18 +55,11 @@ haud:
     dumpdelay: 10000
     dumpperiod: 10000
     threadpoolsize: 1
-  flydb:
-    database-version: 5.1.17
-    database-url: jdbc:mysql://localhost:3306/svalinn_svc_cat2_db?createDatabaseIfNotExist=true&useSSL=true
-    database-user: root
-    database-password: mvrmvr
-    migrate: true
   redisson:
-     ulakey: ULACache
-     ulrkey: ULRCache
-     trxkey: TrxCache
+     cdrkey: CDRCache
+     trxkey: TRXCache
      subscriber:
-       topic: messageQueue
+      topic: messageQueue
      useSentinel: false
      setAddress: redis://10.0.28.131:6379
      setClientName: null
@@ -105,9 +99,8 @@ haud:
        setMasterConnectionPoolSize: 64
        setMasterName: haud-produce-master       
        setDatabase: 0
-       setSentinelAddresses: redis://191.255.15.160:27739,redis://191.255.15.160:27740
+       setSentinelAddresses: redis://127.0.0.1:26379,redis://127.0.0.1:26380,redis://127.0.0.1:26381        
   kafka:
-    #bootstrapAddress: kafka1:9092
     #bootstrapAddress: 191.255.15.98:9092  
     bootstrapAddress: localhost:9092
     ConsumerConfig:
@@ -123,38 +116,44 @@ haud:
        batchsizeconfig: 4096
        lingerconfig: 1
        buffermemoryconfig: 40960  
-    groupId: cat2-packets
-    batch:
+    groupId: packetslocalMayuresh
+    batch: 
       size: 1000
       wait: 1
       maxbytes: 500000000
-
-    message:
-      producer:
-         topic:
-            name: t_dec_req
-      consumer:
+    
+    message:   
+      consumer: 
         topic:
-            name: t_req
-            partitions: x-reply-partition
+          name: t_req,t_dec_req
+          partition: x-reply-partition
+      producer:
+        topic:
+          name: t_req     
+          
       listener:
         latch:
           thread:
             size: 5
-  filter:
-    trxcache:
-      flag: true
-    apid: 2
-    serviceId: 1
-    serviceInst: 1
-
-# ===============================
-# = Logging configurations
-# ===============================
-logging:
-  level:    
-   com.haud: DEBUG
-  path: log
-  file: ${logging.path}/haud-ldap-log.log
-  pattern:
-    file:   "%d{dd-MM-yyyy HH:mm:ss.SSS} %-1level  [%logger.%M - %L] - %msg%n"      
+protobuff:
+  partials:
+    size: 2    
+cron:
+  processor:
+    interval: 1000
+  element:
+    interval: 1000
+  rule:
+    interval: 1000      
+decision:
+  apid: 4    
+  timeToLive: 30
+executor:
+  poolSize: 1
+  maxPoolSize: 1
+  corePoolSize: 1
+  queueCapacity: 1  
+  waitForTaskCompleteOnShutDown: true
+  schedulerDaemon: true
+  executorDaemon: true
+  
