@@ -16,7 +16,7 @@ spring:
   #cache:
     #type: redis
   redis:
-    password: mvr#1976	
+    password: mvr#1976  
   protocoldatasource:
     url: jdbc:mysql://localhost:3306/lteruledb
     username: root
@@ -56,9 +56,9 @@ haud:
     dumpperiod: 10000
     threadpoolsize: 1
   redisson:
-    cdrkey: CDRCache
-    trxkey: TRXCache
-    subscriber:
+     cdrkey: CDRCache
+     trxkey: TRXCache
+     subscriber:
       topic: messageQueue
      useSentinel: false
      setAddress: redis://10.0.28.131:6379
@@ -156,4 +156,3 @@ executor:
   waitForTaskCompleteOnShutDown: true
   schedulerDaemon: true
   executorDaemon: true
-  
