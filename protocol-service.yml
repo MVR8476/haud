@@ -46,7 +46,20 @@ haud:
        setMasterName: haud-produce-master       
        setDatabase: 0
        setSentinelAddresses: redis://127.0.0.1:26379,redis://127.0.0.1:26380,redis://127.0.0.1:26381       	
-
+authsvc:
+  openid:
+    wellKnownConfig:
+      url: http://192.168.20.34:13000/.well-known/openid-configuration
+  jwt:
+    keys:
+      publicKeyB64: MIIDlzCCAn+gAwIBAgIJAItHs21QcHE6MA0GCSqGSIb3DQEBCwUAMGIxCzAJBgNVBAYTAk1UMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRlcm5ldCBXaWRnaXRzIFB0eSBMdGQxGzAZBgNVBAMMEk1UU1ZDLlNFUlZJQ0VfVVNFUjAeFw0xNzA5MjkwODQxNDVaFw0xODA5MjkwODQxNDVaMGIxCzAJBgNVBAYTAk1UMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRlcm5ldCBXaWRnaXRzIFB0eSBMdGQxGzAZBgNVBAMMEk1UU1ZDLlNFUlZJQ0VfVVNFUjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMSWw8h5v5XgKdNUMiYu6auXvvOztjhFRbp29GgviRsD+1wBsMEc5XmLhrenf4YPX+0GqI3uVDD76DHVR9lhX/2wKm9Y6oZFTrfu18WWAHC4GZ3c4RBRKRpiohmC28r58/rAW0g08v51gBBQKVuW45tEm22e+w626HuKfAXK5k/EsRVqG1x0ajFM79GDnPl73vizX5JXy+ViRPOgG68aDspNTf5dbBBXC9YoMXgH+39cBKnDs5HiPJBVikWAhxiZEQvPBrWIJJ/zOGkHF/i0AN6IEuowr6cgrMPe0h21l35jGZN+3XMpr/6d7RyQlwZ3HhDniwh5ZoF8VKj9lYCdNgUCAwEAAaNQME4wHQYDVR0OBBYEFL2LIMryjxSKe6SiV5EnzP3XH/zqMB8GA1UdIwQYMBaAFL2LIMryjxSKe6SiV5EnzP3XH/zqMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAAVQd4Oj0FJ+YLGu8vJ4TQWmsk7iVmd9JcekdFBr6waYCDFdel468Phn1QJG3/bOmmdNB4/MkoDE2gIgRj+M7qc55cDU4I1sTVLJ3m+ke+sJbiT54z4vCNtC9i8N4yLhYtyGh/iDch1YezEiQP7F0jcFFtc/i9Ff5YMd98qD79enZVIctirhKKVwUTKGYLAgjKjF9l/1kzdasbv6Ie1HoXVlOzuq7YSxmM4bS+eq5x/156FlXp0ANHqoBiskpAQLNOItfcCFpIqBY8DoGY4Qs4aHcIqeisGHQA73h+zeWwI4H/JSYWYzPKsnYN3Y/hbbx10xGjmkUvSJ+AP9/Q53Yrw=
+    header: Authorization  
+    issuerUrl: http://192.168.20.34
+  internalAudience: 192.168.20.34
+audit:
+  service:
+    url: http://192.168.20.34:13030/api/audit
+  enabled: true	
 protserv:
   pagable:    
     maxsize: 500
