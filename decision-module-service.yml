@@ -78,7 +78,7 @@ haud:
      setPingTimeout: 1000
      setConnectTimeout: 1000
      setTimeout: 1000
-     setRetryAttempts: 1
+     setRetryAttempts: 3
      setRetryInterval: 1500
      setReconnectionTimeout: 3000
      setSubscriptionsPerConnection: 5
@@ -86,14 +86,14 @@ haud:
      setSubscriptionConnectionPoolSize: 50
      setConnectionMinimumIdleSize: 10
      setConnectionPoolSize: 64
-     setThreads: 0
-     setNettyThreads: 0
+     setThreads: 16
+     setNettyThreads: 32
      setPassword: mvr#1976   
      sentinelServersConfig:
        setIdleConnectionTimeout: 10000
        setConnectTimeout: 10000
        setTimeout: 3000
-       setRetryAttempts: 1
+       setRetryAttempts: 3
        setRetryInterval: 1500
        setFailedSlaveReconnectionInterval: 3000
        setFailedSlaveCheckInterval: 60000
@@ -164,6 +164,6 @@ executor:
   corePoolSize: 1
   queueCapacity: 1  
   waitForTaskCompleteOnShutDown: true
-  schedulerDaemon: false
-  executorDaemon: false
+  schedulerDaemon: true
+  executorDaemon: true
   
