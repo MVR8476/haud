@@ -55,22 +55,11 @@ haud:
     dumpdelay: 10000
     dumpperiod: 10000
     threadpoolsize: 1
-  redis:    
-    host: localhost
-    port: 6379
-    password: mvr#1976 
-    usepool: true
-    timeout: 60
+  redisson:
     cdrkey: CDRCache
     trxkey: TRXCache
     subscriber:
       topic: messageQueue
-    jedis:
-      pool:
-        max: 5
-        testOnBorrow: true
-        testOnReturn: true
-  redisson:
      useSentinel: false
      setAddress: redis://10.0.28.131:6379
      setClientName: null
