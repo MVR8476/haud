@@ -150,9 +150,9 @@ decision:
   timeToLive: 30
 executor:
   poolSize: 1
-  maxPoolSize: 1
-  corePoolSize: 1
-  queueCapacity: 1  
+  maxPoolSize: 100
+  corePoolSize: 100
+  queueCapacity: 100 
   waitForTaskCompleteOnShutDown: true
   schedulerDaemon: true
   executorDaemon: true
