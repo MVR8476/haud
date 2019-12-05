@@ -149,7 +149,7 @@ decision:
   apid: 4    
   timeToLive: 30
 executor:
-  poolSize: 1
+  poolSize: 100
   maxPoolSize: 100
   corePoolSize: 100
   queueCapacity: 100 
