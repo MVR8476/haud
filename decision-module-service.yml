@@ -15,8 +15,8 @@ server:
 spring:
   #cache:
     #type: redis
-  redis:
-    password: mvr#1976  
+  #redis:
+    #password: mvr#1976  
   protocoldatasource:
     url: jdbc:mysql://localhost:3306/lteruledb
     username: root
