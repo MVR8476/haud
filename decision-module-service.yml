@@ -61,7 +61,7 @@ haud:
      subscriber:
       topic: messageQueue
      useSentinel: false
-     setAddress: redis://191.255.15.160:27739
+     setAddress: redis://10.0.28.131:6379
      setClientName: null
      setIdleConnectionTimeout: 10000
      setPingTimeout: 1000
