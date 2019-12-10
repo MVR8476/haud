@@ -49,6 +49,12 @@ names:
 haud: 
   app: 
     uuid: X-HAUD-INTERNAL-UUID
+  filter:
+    trxcache:
+      flag: true
+    apid: 2
+    serviceId: 1
+    serviceInst: 1	
   stats:  
     dumpdelay: 10000
     dumpperiod: 10000
