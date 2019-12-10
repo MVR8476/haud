@@ -55,9 +55,7 @@ haud:
     threadpoolsize: 1
   redisson:
      ulakey: ULACache
-     ulrkey: ULRCache
-     trxkey: TrxCache  
-     cdrkey: CDRCache
+     ulrkey: ULRCache       
      trxkey: TRXCache
      subscriber:
       topic: messageQueue
