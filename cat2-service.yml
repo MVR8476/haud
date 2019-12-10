@@ -46,6 +46,7 @@ names:
     cat2: CAT2123
     cat3: CAT3123
     decisionModule: DM123   
+    
 haud: 
   app: 
     uuid: X-HAUD-INTERNAL-UUID
@@ -117,7 +118,7 @@ haud:
       consumer: 
         topic:
           name: t_req,t_dec_req
-          partition: x-reply-partition
+          partitions: x-reply-partition
       producer:
         topic:
           name: t_req     
