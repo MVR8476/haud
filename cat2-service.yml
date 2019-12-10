@@ -54,7 +54,7 @@ haud:
       flag: true
     apid: 2
     serviceId: 1
-    serviceInst: 1	
+    serviceInst: 1  
   stats:  
     dumpdelay: 10000
     dumpperiod: 10000
@@ -113,7 +113,6 @@ haud:
       size: 1000
       wait: 1
       maxbytes: 500000000
-    
     message:   
       consumer: 
         topic:
