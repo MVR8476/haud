@@ -13,8 +13,6 @@ server:
     minResponseSize: 4096  
   
 spring:
-  redis:
-    password: mvr#1976
   protocoldatasource:
     url: jdbc:mysql://localhost:3306/lteruledb
     username: root
@@ -75,6 +73,7 @@ haud:
      connectionPoolSize: 64
      threads: 16
      nettyThreads: 32
+	 password: mvr#1976 
      failedSlaveReconnectionInterval: 3000
      failedSlaveCheckInterval: 60000
      slaveConnectionMinimumIdleSize: 24
