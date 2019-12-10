@@ -48,6 +48,12 @@ names:
     decisionModule: DM123   
     
 haud: 
+  flydb:
+    database-version: 5.1.17
+    database-url: jdbc:mysql://localhost:3306/svalinn_svc_cat2_db?createDatabaseIfNotExist=true&useSSL=true
+    database-user: root
+    database-password: mvrmvr
+    migrate: true
   app: 
     uuid: X-HAUD-INTERNAL-UUID
   filter:
