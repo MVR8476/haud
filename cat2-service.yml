@@ -54,6 +54,9 @@ haud:
     dumpperiod: 10000
     threadpoolsize: 1
   redisson:
+     ulakey: ULACache
+     ulrkey: ULRCache
+     trxkey: TrxCache  
      cdrkey: CDRCache
      trxkey: TRXCache
      subscriber:

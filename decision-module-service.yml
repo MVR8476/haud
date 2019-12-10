@@ -54,8 +54,6 @@ haud:
   redisson:
      cdrkey: CDRCache
      trxkey: TRXCache
-     subscriber:
-      topic: messageQueue
      useSentinel: false
      masterAddress: redis://10.0.28.131:6379
      clientName: null
