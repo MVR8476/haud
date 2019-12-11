@@ -1,7 +1,7 @@
+# ===============================
 # = APPLICATION SERVER configurations
 # ===============================   
 server:
-  port: 8086 
   undertow: 
     ioThreads: 15
     workerThreads: 150
@@ -11,67 +11,57 @@ server:
     enabled: true
     mimeTypes: text/xml, text/css, text/html, application/json
     minResponseSize: 4096  
-  
+  servlet:
+    context-path: /haud
+
+# ===============================
+# = Hibernate datasource
+# ===============================
 spring:
-  redis:
-    password: mvr#1976  
-  protocoldatasource:
-    url: jdbc:mysql://localhost:3306/lteruledb
+  main:
+    banner-mode: 'off' 
+  resources:
+    chain:
+      enabled: true  
+  mvc:
+    favicon:
+      enabled: false 
+  datasource:
+    url: jdbc:mysql://localhost:3306/svalinn_svc_cat2_db?createDatabaseIfNotExist=true&useSSL=true
     username: root
     password: mvrmvr
-    driver-class-name: com.mysql.jdbc.Driver
-  ruledatasource:
-    url: jdbc:mysql://localhost:3306/svallin_lteruledb
-    username: root
-    password: mvrmvr
-    driver-class-name: com.mysql.jdbc.Driver  
-  associationdatasource:
-    url: jdbc:mysql://localhost:3306/associationdb
-    username: root
-    password: mvrmvr
-    driver-class-name: com.mysql.jdbc.Driver
- 
+  driver-class-name: com.mysql.jdbc.Driver
+# ===============================
+# = JPA configurations
+# ===============================  
   jpa:
     show-sql: true
     hibernate:
       show-sql: true
-      ddl-auto: update
-    generate-ddl: true
+    generate-ddl: false
     database-platform: MYSQL
     properties:
       hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-names:
-  format: 
-    ap: AP123    
-    cat2: CAT2123
-    cat3: CAT3123
-    decisionModule: DM123   
-    
+
 haud: 
+  app: 
+    uuid: X-HAUD-INTERNAL-UUID
+  stats:  
+    dumpdelay: 10000
+    dumpperiod: 10000
+    threadpoolsize: 1
   flydb:
     database-version: 5.1.17
     database-url: jdbc:mysql://localhost:3306/svalinn_svc_cat2_db?createDatabaseIfNotExist=true&useSSL=true
     database-user: root
     database-password: mvrmvr
     migrate: true
-  app: 
-    uuid: X-HAUD-INTERNAL-UUID
-  filter:
-    trxcache:
-      flag: true
-    apid: 2
-    serviceId: 1
-    serviceInst: 1  
-  stats:  
-    dumpdelay: 10000
-    dumpperiod: 10000
-    threadpoolsize: 1
   redisson:
      ulakey: ULACache
-     ulrkey: ULRCache       
-     trxkey: TRXCache
+     ulrkey: ULRCache
+     trxkey: TrxCache
      subscriber:
-      topic: messageQueue
+       topic: messageQueue
      useSentinel: false
      masterAddress: redis://10.0.28.131:6379
      clientName: null
@@ -98,8 +88,9 @@ haud:
      masterConnectionPoolSize: 64
      masterName: haud-produce-master       
      database: 0
-     sentinelAddresses: redis://127.0.0.1:26379,redis://127.0.0.1:26380,redis://127.0.0.1:26381      
+     sentinelAddresses: redis://127.0.0.1:26379,redis://127.0.0.1:26380,redis://127.0.0.1:26381
   kafka:
+    #bootstrapAddress: kafka1:9092
     #bootstrapAddress: 191.255.15.98:9092  
     bootstrapAddress: localhost:9092
     ConsumerConfig:
@@ -115,43 +106,38 @@ haud:
        batchsizeconfig: 4096
        lingerconfig: 1
        buffermemoryconfig: 40960  
-    groupId: packetslocalMayuresh
-    batch: 
+    groupId: cat2-packets
+    batch:
       size: 1000
       wait: 1
       maxbytes: 500000000
-    message:   
-      consumer: 
-        topic:
-          name: t_req,t_dec_req
-          partitions: x-reply-partition
+
+    message:
       producer:
+         topic:
+            name: t_dec_req
+      consumer:
         topic:
-          name: t_req     
-          
+            name: t_req
+            partitions: x-reply-partition
       listener:
         latch:
           thread:
             size: 5
-protobuff:
-  partials:
-    size: 2    
-cron:
-  processor:
-    interval: 1000
-  element:
-    interval: 1000
-  rule:
-    interval: 1000      
-decision:
-  apid: 4    
-  timeToLive: 30
-executor:
-  poolSize: 1
-  maxPoolSize: 1
-  corePoolSize: 1
-  queueCapacity: 1  
-  waitForTaskCompleteOnShutDown: true
-  schedulerDaemon: true
-  executorDaemon: true
-  
+  filter:
+    trxcache:
+      flag: true
+    apid: 2
+    serviceId: 1
+    serviceInst: 1
+
+# ===============================
+# = Logging configurations
+# ===============================
+logging:
+  level:    
+   com.haud: DEBUG
+  path: log
+  file: ${logging.path}/haud-ldap-log.log
+  pattern:
+    file:   "%d{dd-MM-yyyy HH:mm:ss.SSS} %-1level  [%logger.%M - %L] - %msg%n"      
