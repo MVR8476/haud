@@ -62,8 +62,8 @@ haud:
      trxkey: TrxCache
      subscriber:
        topic: messageQueue
-     useSentinel: false
-     masterAddress: redis://10.0.28.131:6379
+     useSentinel: true
+     masterAddress: redis://10.0.28.149:6379
      clientName: null
      idleConnectionTimeout: 10000
      pingTimeout: 1000
@@ -88,7 +88,7 @@ haud:
      masterConnectionPoolSize: 64
      masterName: haud-produce-master       
      database: 0
-     sentinelAddresses: redis://127.0.0.1:26379,redis://127.0.0.1:26380,redis://127.0.0.1:26381
+     sentinelAddresses: redis://10.0.28.149:26379,redis://10.0.28.149:26380,redis://10.0.28.149:26381
   kafka:
     #bootstrapAddress: kafka1:9092
     #bootstrapAddress: 191.255.15.98:9092  
