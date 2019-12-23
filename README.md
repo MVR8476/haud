@@ -458,13 +458,7 @@ public class MessageProducer {
 					logger.info("Request UUID [{}] recevied  on partition [{}] ", uuid, message.partition());
 					DiameterMsgPayload msgPayload = diameter.getDiameterMsg();
 					
-
-					/**
-					 *  
-					 * The partially decoded diameter packet.
-					 */
-					//StatisticsManager.getInstance().getDiaMsgInfo().setDiaPacket(msgPayload);
-									
+								
 					/**
 					 *  
 					 * Update packet delay stats based on the timestamps set in DiaMessageInfo			     
