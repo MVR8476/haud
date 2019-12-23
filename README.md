@@ -384,14 +384,14 @@ public class MessageProducer {
 
 2. This is used to The packet received timestamp.
 ```java
-try {
-				diameter = Diameter.HaudWrapper.parseFrom(message.value());
-				
-			    /**
-			     *  
-			     * The packet received timestamp.
-			     */
-				StatisticsManager.getInstance().setPktRcvdTime();
+ 
+	diameter = Diameter.HaudWrapper.parseFrom(message.value());
+	
+	/**
+	 *  
+	 * The packet received timestamp.
+	 */
+	StatisticsManager.getInstance().setPktRcvdTime();
 			
 ```
 
@@ -406,7 +406,7 @@ try {
 		StatisticsManager.getInstance().updatePacketDelayStatus();	
 ```
 			  
-####  Simple Example (prometheus): -
+####  Complete Example (prometheus): -
 
 ```java
 
