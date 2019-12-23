@@ -298,9 +298,6 @@ StatisticsManager.getInstance().incrementRedisSuccessfulStats(redisTopic);
 //To increate un scuccessful Statistics Increment count for ( PUT, READ ,DELETE) Transaction
 StatisticsManager.getInstance().incrementRedisFailureStats(redisTopic);
 ```
-***EOF***
-
-
 
 ####  THIRD STEP (prometheus): - increase The Packet sent timestamp (SENT & ACTUAL SENT)
 from KAFKA MessageProducer.java you can increase The Packet sent timestamp 
