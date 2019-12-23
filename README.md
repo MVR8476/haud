@@ -480,9 +480,6 @@ public class MessageProducer {
 					outputProperties.add(OutputProperties.newBuilder()
 							.setKey(Constants.CAT2_CHECKS + ErrorMessages.PROTOBUFF_PARSE_ERROR_CODE)
 							.setValue(ErrorMessages.PROTOBUFF_PARSE_ERROR_MSG).build());
-					//Code added by mayuresh ratnaparkhi 27-11-2019
-					//StatisticsManager.getInstance().incrementRequestTopicErrorStats(partition);
-
 					decisionModule.submit(partition, "", uuid, outputProperties, processStartTime, diameter, false);
 				}
 			});
