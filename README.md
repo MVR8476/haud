@@ -191,5 +191,306 @@ public class MessageRepository extends KafkaRedisMonitor implements ConnectionLi
 }
 
 ```
+if you are  using RedisTemplate (RedisConnectionFactory), then 
+you will need to set (super.redisConnectionFactory =redisConnectionFactory)
+```java
+import com.haud.svalinn.lib.stats.KafkaRedisMonitor;
 
+public class RedisConnectionWatcher  implements ConnectionListener {
+
+	private Config config;
+	private RedissonClient redisson;
+	private final Logger logger = LoggerFactory.getLogger(RedisConnectionWatcher.class);
+	private ScheduledExecutorService scheduledExecutorService = null;
+	private boolean isconnected = false;
+	private RedisConnectionFactory redisConnectionFactory;
+	
+	 
+	
+	@Autowired
+	public RedisConnectionWatcher(Config config) {
+		this.config = config;
+		initializeRedis();
+	}
+
+	private void initializeRedis() {
+		String uuid = UUID.randomUUID().toString();
+		scheduledExecutorService = Executors.newScheduledThreadPool(Runtime.getRuntime().availableProcessors());
+		scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
+
+			public void run() {
+				logger.info("UUID [{}] trying to connect Redis Server...........!", uuid);
+				initializeConnection(uuid);
+
+			}
+		}, 0, 10, TimeUnit.SECONDS);
+
+	}
+
+	private void initializeConnection(String uuid) {
+		try {
+			redisson = Redisson.create(config);
+			InitializingBeans(uuid);
+			scheduledExecutorService.shutdown();
+			scheduledExecutorService.shutdownNow();
+			scheduledExecutorService = null;
+			isconnected = true;
+			logger.info("UUID [{}] Redis Server Started ....!", uuid);
+		} catch (Exception e) {
+			isconnected = false;
+			logger.info("UUID [{}] Redis Server not Started [{}] ", uuid, e.getMessage(), e);
+
+		}
+
+	}
+
+	public void InitializingBeans(String uuid) {
+		logger.info("UUID [{}] Bean Initialization started ...........", uuid);
+		new RedisConnector(new RedissonConnectionFactory(redisson));
+		logger.info("UUID [{}] Bean Initialization completed ...........", uuid);
+
+	}
+
+	@Override
+	public void onConnect(InetSocketAddress addr) {
+		String uuid = UUID.randomUUID().toString();
+		isconnected = true;
+		logger.info("UUID [{}] Connected to Redis Server ...........", uuid);
+
+	}
+
+	@Override
+	public void onDisconnect(InetSocketAddress addr) {
+		String uuid = UUID.randomUUID().toString();
+		isconnected = false;
+		logger.info("UUID [{}] Disconnecting from Redis Server ...........", uuid);
+
+	}
+
+	public boolean isIsconnected() {
+		return isconnected;
+	}
+
+	public RedisConnectionFactory getRedisConnectionFactory() {
+		return this.redisConnectionFactory;
+	}
+
+	class RedisConnector extends KafkaRedisMonitor{
+
+		public RedisConnector(RedisConnectionFactory redissonConnectionFactory) {
+			super();
+			this.redisConnectionFactory = redissonConnectionFactory;			
+			super.redisConnectionFactory=redissonConnectionFactory;		 
+		}
+
+		 
+	}
+}
+
+```
+
+####  SECOND STEP : - increase REDIS (PUT, READ ,DELETE)  (success/failure) Transactions  Statistics count
+```java
+
+//To increate Scuccessful Statistics Increment count for ( PUT, READ ,DELETE) Transaction
+StatisticsManager.getInstance().incrementRedisSuccessfulStats(redisTopic);
+
+//To increate un scuccessful Statistics Increment count for ( PUT, READ ,DELETE) Transaction
+StatisticsManager.getInstance().incrementRedisFailureStats(redisTopic);
+```
+***EOF***
+
+
+
+####  THIRD STEP (prometheus): - increase The Packet sent timestamp (SENT & ACTUAL SENT)
+from KAFKA MessageProducer.java you can increase The Packet sent timestamp 
+```java
+
+import com.haud.svalinn.lib.stats.StatisticsManager;
+import com.haud.lte.service.entity.Diameter.HaudWrapper;
+
+@Service
+public class MessageProducer {
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+	@Autowired
+	private KafkaTemplate<String, byte[]> kafkaTemplate;
+
+	@Value(value = "${haud.kafka.message.producer.topic.name}")
+	private String topicName;
+
+	public void sendMessage(ProducerRecord<String, byte[]> message) {
+	    /**
+	     * newly added mayuresh ratnaparkhi 20-12-2019
+	     * The packet sent to kafka time.
+	     */
+		StatisticsManager.getInstance().setPktSentToKafkaTime();
+		ListenableFuture<SendResult<String, byte[]>> future = kafkaTemplate.send(message);
+
+		future.addCallback(new ListenableFutureCallback<SendResult<String, byte[]>>() {
+
+			@Override
+			public void onSuccess(SendResult<String, byte[]> result) {
+			    /**
+			     * newly added mayuresh ratnaparkhi 20-12-2019
+			     * The packet sent timestamp.
+			     */
+				StatisticsManager.getInstance().setPktSentTime();				
+				logger.info("Request UUID [{}] Sent message [{}]", Thread.currentThread().getName(), message);
+			}
+
+			@Override
+			public void onFailure(Throwable ex) {
+				logger.error("Request UUID [{}] Unable to send message with error [{}]",
+						Thread.currentThread().getName(), ex.getMessage());
+			}
+		});
+	}
+
+	public ProducerRecord<String, byte[]> publishResponse(HaudWrapper diameterWrapper, int partition, String msgKey) {
+		logger.info("Request UUID [{}] publish Response for msgKey [{}] in partition [{}]",
+				Thread.currentThread().getName(), msgKey, partition);
+
+		return new ProducerRecord<>(topicName, partition, msgKey, diameterWrapper.toByteArray());
+
+	}
+
+}
+```
+
+####  FOURTH STEP (prometheus): - increase The Packet received timestamp ( Topic (partition) received & ACTUAL received)
+
+1. This is used to update number of request recieved on this topic in statistics information.
+```java
+
+ // This is used to update number of request recieved on this topic in statistics information.
+ 
+ messages.parallelStream().map(message -> {
+			return message;
+		}).forEachOrdered(message -> {		
+			int partition = 0;
+			// each message contains kafka topic partition info in x-reply-partition(in byte
+			// format) header.Response is submitted to the queue on the same partition.
+			if (message.headers().lastHeader(replyPartition) != null) {
+				String partStr = new String(message.headers().lastHeader(replyPartition).value());
+				if (!partStr.isBlank() && partStr.chars().allMatch(Character::isDigit))
+					partition = Integer.parseInt(partStr);
+			}
+			uuid = UUID.randomUUID().toString();
+			processStartTime = System.currentTimeMillis();
+			// This is used to update number of request recieved on this topic in statistics
+			// information.
+			StatisticsManager.getInstance().incrementRequestTopicRcvdStats(partition);
+			
+```
+
+
+2. This is used to The packet received timestamp.
+```java
+try {
+				diameter = Diameter.HaudWrapper.parseFrom(message.value());
+				
+			    /**
+			     *  
+			     * The packet received timestamp.
+			     */
+				StatisticsManager.getInstance().setPktRcvdTime();
+			
+```
+
+3.  Update packet delay stats based on the timestamps set in DiaMessageInfo.
+```java
+
+	/**
+	 *  
+	 * Update packet delay stats based on the timestamps set in DiaMessageInfo			     *
+	 *  
+	 */
+		StatisticsManager.getInstance().updatePacketDelayStatus();	
+```
+			  
+####  Simple Example (prometheus): -
+
+```java
+
+/*
+	 * Gets packets from
+	 * 
+	 * @Class MessageListener.class parses protobuff to java object and forwards
+	 * message to respective handler methods on the basis of command code
+	 */
+	public void processBatch(List<ConsumerRecord<String, byte[]>> messages) {
+
+		for (ConsumerRecord<String, byte[]> message : messages) 
+		{
+			messages.parallelStream().map(message -> {
+				return message;
+			}).forEachOrdered(message -> {		
+				int partition = 0;
+				// each message contains kafka topic partition info in x-reply-partition(in byte
+				// format) header.Response is submitted to the queue on the same partition.
+				if (message.headers().lastHeader(replyPartition) != null) {
+					String partStr = new String(message.headers().lastHeader(replyPartition).value());
+					if (!partStr.isBlank() && partStr.chars().allMatch(Character::isDigit))
+						partition = Integer.parseInt(partStr);
+				}
+				uuid = UUID.randomUUID().toString();
+				processStartTime = System.currentTimeMillis();
+				// This is used to update number of request recieved on this topic in statistics
+				// information.
+				StatisticsManager.getInstance().incrementRequestTopicRcvdStats(partition);
+				
+				try 
+				{
+				
+					diameter = Diameter.HaudWrapper.parseFrom(message.value());
+					
+					/**
+					 *  
+					 * The packet received timestamp.
+					 */
+					StatisticsManager.getInstance().setPktRcvdTime();
+									
+					
+					// This is used to log request processing time --start--
+					TimingHandler handler = new TimingHandler(System.currentTimeMillis());
+					Constants.transactions.put(diameter.getTrxId(), handler);
+					// --end--
+					
+					
+					logger.info("Request UUID [{}] recevied  on partition [{}] ", uuid, message.partition());
+					DiameterMsgPayload msgPayload = diameter.getDiameterMsg();
+					
+
+					/**
+					 *  
+					 * The partially decoded diameter packet.
+					 */
+					//StatisticsManager.getInstance().getDiaMsgInfo().setDiaPacket(msgPayload);
+									
+					/**
+					 *  
+					 * Update packet delay stats based on the timestamps set in DiaMessageInfo			     
+					 *  
+					 */
+					StatisticsManager.getInstance().updatePacketDelayStatus();				
+
+					 
+
+				} catch (InvalidProtocolBufferException e) {
+					logger.error(ErrorMessages.PROTOBUFF_PARSE_ERROR_MSG, uuid, e);
+					ArrayList<OutputProperties> outputProperties = new ArrayList<>();
+					outputProperties.add(OutputProperties.newBuilder()
+							.setKey(Constants.CAT2_CHECKS + ErrorMessages.PROTOBUFF_PARSE_ERROR_CODE)
+							.setValue(ErrorMessages.PROTOBUFF_PARSE_ERROR_MSG).build());
+					//Code added by mayuresh ratnaparkhi 27-11-2019
+					//StatisticsManager.getInstance().incrementRequestTopicErrorStats(partition);
+
+					decisionModule.submit(partition, "", uuid, outputProperties, processStartTime, diameter, false);
+				}
+			});
+		}
+	}
+```
+ 
 ***EOF***
