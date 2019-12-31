@@ -62,7 +62,7 @@ haud:
      trxkey: TrxCache
      subscriber:
        topic: messageQueue
-     useSentinel: true
+     useSentinel: false
      masterAddress: redis://10.0.28.149:6379
      clientName: null
      idleConnectionTimeout: 10000
