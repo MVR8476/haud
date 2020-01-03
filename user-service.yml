@@ -60,7 +60,8 @@ usrsrv:
     distinguishedName: 
       objectclass: distinguishedName
     restrictedAttributesWhileUpdate: cn,sn,sAMAccountName,givename
-    restrictedSuperUsers: mayuresh.,Administrator	  
+    restrictedSuperUsers: mayuresh.,Administrator
+    restrictedMailDomains : gmail,mail	  
   patterns:
     password: "((?=.*[a-z])(?=.*\\d)(?=.*[A-Z])(?=.*[@#$%!]).{8,40})"
   pagable:    
