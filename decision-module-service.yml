@@ -50,8 +50,8 @@ haud:
   stats:  
     dumpdelay: 10000
     dumpperiod: 10000
-	redispingdelay: 10000
-	kafkapingdelay: 10000
+    redispingdelay: 10000
+    kafkapingdelay: 10000
     threadpoolsize: 1
   redisson:
      cdrkey: CDRCache
