@@ -136,7 +136,7 @@ executor:
   poolSize: 5   
   waitForTaskCompleteOnShutDown: true
 scheduler:
-  delay: 60000 
+  delay: 5000 
 hyperscan:
   poolSize: 5  
   
