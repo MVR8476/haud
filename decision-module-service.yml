@@ -109,7 +109,7 @@ haud:
     message:   
       consumer: 
         topic:
-          name: AP-Writer-Topic,CAT2-Writer-Topic
+          name: AP-Writer-Topic,CAT2-Writer-Topic,CAT3-Writer-Topic
           partition: x-reply-partition
       producer:
         topic:
