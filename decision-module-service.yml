@@ -100,7 +100,7 @@ haud:
        batchsizeconfig: 4096
        lingerconfig: 1
        buffermemoryconfig: 40960  
-    groupId: packetslocalMayuresh
+    groupId: decision-module
     batch: 
       size: 1000
       wait: 1
@@ -109,12 +109,12 @@ haud:
     message:   
       consumer: 
         topic:
-          name: t_req,t_dec_req
+          name: AP-Writer-Topic,CAT2-Writer-Topic
           partition: x-reply-partition
       producer:
         topic:
-          name: t_req     
-          
+          name: Decision-Writer-Topic     
+          partition: x-reply-partition
       listener:
         latch:
           thread:
