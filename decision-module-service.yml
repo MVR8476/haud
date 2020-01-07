@@ -121,7 +121,7 @@ haud:
             size: 5
 protobuff:
   partials:
-    size: 2    
+    size: 1    
 cron:
   processor:
     interval: 1000
