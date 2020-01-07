@@ -85,8 +85,8 @@ haud:
      sentinelAddresses: redis://10.0.28.149:26379,redis://10.0.28.149:26380,redis://10.0.28.149:26381
   kafka:
     #bootstrapAddress: kafka1:9092
-    bootstrapAddress: localhost:9092  
-    bootstrapAddress: 191.255.15.98:9092
+    #bootstrapAddress: localhost:9092  191.255.15.98:9092
+    bootstrapAddress: 191.255.15.160:19092
     ConsumerConfig:
        heartbeatinterval: 5000   
        isolationlevel: read_committed 
