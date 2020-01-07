@@ -56,8 +56,8 @@ haud:
   redisson:
      cdrkey: CDRCache
      trxkey: TRXCache
-     useSentinel: true
-     masterAddress: redis://10.0.28.131:6379
+     useSentinel: false
+     masterAddress: redis://191.255.15.160:16379 
      clientName: null
      idleConnectionTimeout: 10000
      pingTimeout: 1000
@@ -73,7 +73,7 @@ haud:
      connectionPoolSize: 64
      threads: 16
      nettyThreads: 32
-     password: mvr#1976 
+     password: password123
      failedSlaveReconnectionInterval: 3000
      failedSlaveCheckInterval: 60000
      slaveConnectionMinimumIdleSize: 24
@@ -85,8 +85,8 @@ haud:
      sentinelAddresses: redis://10.0.28.149:26379,redis://10.0.28.149:26380,redis://10.0.28.149:26381
   kafka:
     #bootstrapAddress: kafka1:9092
-    bootstrapAddress: localhost:9092  
-    #bootstrapAddress: 191.255.15.98:9092
+    #bootstrapAddress: localhost:9092  191.255.15.98:9092
+    bootstrapAddress: 191.255.15.160:19092
     ConsumerConfig:
        heartbeatinterval: 5000   
        isolationlevel: read_committed 
@@ -100,7 +100,7 @@ haud:
        batchsizeconfig: 4096
        lingerconfig: 1
        buffermemoryconfig: 40960  
-    groupId: packetslocalMayuresh
+    groupId: decision-module
     batch: 
       size: 1000
       wait: 1
@@ -109,19 +109,19 @@ haud:
     message:   
       consumer: 
         topic:
-          name: t_req,t_dec_req
+          name: AP-Writer-Topic,CAT2-Writer-Topic,CAT3-Writer-Topic
           partition: x-reply-partition
       producer:
         topic:
-          name: t_req     
-          
+          name: Decision-Writer-Topic     
+          partition: x-reply-partition
       listener:
         latch:
           thread:
             size: 5
 protobuff:
   partials:
-    size: 2    
+    size: 1    
 cron:
   processor:
     interval: 1000
