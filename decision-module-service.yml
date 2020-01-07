@@ -57,7 +57,7 @@ haud:
      cdrkey: CDRCache
      trxkey: TRXCache
      useSentinel: false
-     masterAddress: redis://191.255.15.160:6379
+     masterAddress: redis://191.255.15.160:16379 
      clientName: null
      idleConnectionTimeout: 10000
      pingTimeout: 1000
