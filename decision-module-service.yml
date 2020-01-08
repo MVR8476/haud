@@ -73,7 +73,7 @@ haud:
      connectionPoolSize: 64
      threads: 16
      nettyThreads: 32
-     password: password123
+     password: mvr#1976
      failedSlaveReconnectionInterval: 3000
      failedSlaveCheckInterval: 60000
      slaveConnectionMinimumIdleSize: 24
