@@ -114,7 +114,7 @@ haud:
       producer:
         topic:
           name: t_req     
-          
+          partition: x-reply-partition
       listener:
         latch:
           thread:
