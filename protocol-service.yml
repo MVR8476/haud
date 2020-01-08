@@ -65,7 +65,7 @@ protserv:
     maxsize: 500
   flydb:
     database-version: 5.1.17
-    database-url: jdbc:mysql://localhost:3306/svallin_db?createDatabaseIfNotExist=true&useSSL=true
+    database-url: jdbc:mysql://localhost:3306/new_svallin_db?createDatabaseIfNotExist=true&useSSL=true
     database-user: root
     database-password: mvrmvr      
     migrate: true
@@ -85,7 +85,7 @@ spring:
     favicon:
       enabled: false  
   datasource:
-    url: jdbc:mysql://localhost:3306/svallin_db?createDatabaseIfNotExist=true&useSSL=true
+    url: jdbc:mysql://localhost:3306/new_svallin_db?createDatabaseIfNotExist=true&useSSL=true
     username: root
     password: mvrmvr
 # ===============================
