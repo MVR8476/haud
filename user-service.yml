@@ -54,7 +54,7 @@ usrsrv:
     cn :
       objectclass: cn
     member: 
-      objectclass: member
+      objectclass: memberOf
     mail: 
       attribute: mail
     distinguishedName: 
