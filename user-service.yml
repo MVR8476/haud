@@ -46,7 +46,7 @@ usrsrv:
     url: ldap://191.255.15.251:389    
     userDn: CN=mayuresh.,CN=Users,DC=matfar,DC=haud
     password: 1234567!a
-    setBase:DC=matfar,DC=haud
+    setBase: CN=Users,DC=matfar,DC=haud
     user: 
       objectclass: user
     group: 
