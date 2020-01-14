@@ -54,7 +54,7 @@ usrsrv:
     cn :
       objectclass: cn
     member: 
-      objectclass: member
+      objectclass: memberOf
     mail: 
       attribute: mail
     distinguishedName: 
@@ -69,8 +69,7 @@ usrsrv:
 authsvc:
   openid:
     wellKnownConfig:
-      url: http://192.168.20.34:13000/.well-known/openid-configuration
-     #url: http://192.168.20.34:13000/.well-known/openid-configuration
+      url: http://192.168.20.34:13000/.well-known/openid-configuration    
   jwt:
     keys: 
       publicKeyB64: MIIBjDCB9gIBATANBgkqhkiG9w0BAQ0FADAPMQ0wCwYDVQQDEwRUZXN0MB4XDTE5MTAyNzE5MTc1NloXDTE5MTAyNzE5MTc1NlowDzENMAsGA1UEAxMEVGVzdDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAqNyYLiqtrqhBuqNYhGVskKSkZTV6Jtmbb2qP7cm4ouk1opSxCvAE56KMfYMVvvx20wiRj/D2/o2sjl1onIVgcBrUaOlY455ISpNRAaKIrJweZul/IGEvISBhQCE6Flr24HJeRGMFwyS3QjmVBv2fPzL/cXl44PKBSlLdC7iU3P8CAwEAATANBgkqhkiG9w0BAQ0FAAOBgQAN08KDki5bcC3yisc7texByazi2Brpm0a70I5FnisCtbnUp81YLWyRf+X27QwS2llvCUf0KZR3xof3p17v0qyTxpBcsLMMs0M4AYcZlEz14m3HbxxuGVfUd45jB3PElsP5c/jodEzLBibc8Vd2ZNFgNhog6wQNFCCu5FqUwQDkgQ==
