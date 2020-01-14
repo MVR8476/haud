@@ -43,7 +43,7 @@ haud:
 
 usrsrv:  
   ldap: 
-    url: ldap://191.255.15.251:389    
+    url: ldap://191.255.15.251:3268   
     userDn: CN=mayuresh.,CN=Users,DC=matfar,DC=haud
     password: 1234567!a
     setBase: CN=Users,DC=matfar,DC=haud
@@ -54,7 +54,7 @@ usrsrv:
     cn :
       objectclass: cn
     member: 
-      objectclass: memberOf
+      objectclass: member
     mail: 
       attribute: mail
     distinguishedName: 
