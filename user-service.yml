@@ -51,7 +51,7 @@ usrsrv:
       objectclass: user
     group: 
       objectclass: group
-    cn :
+    cn:
       objectclass: cn
     member: 
       objectclass: member
