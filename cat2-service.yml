@@ -65,7 +65,7 @@ haud:
      subscriber:
        topic: messageQueue
      useSentinel: true
-     masterAddress: redis://10.0.28.149:6379
+     masterAddress: redis://10.0.31.108:6379
      clientName: null
      idleConnectionTimeout: 10000
      pingTimeout: 1000
@@ -90,7 +90,7 @@ haud:
      masterConnectionPoolSize: 64
      masterName: haud-produce-master       
      database: 0
-     sentinelAddresses: redis://10.0.28.149:26379,redis://10.0.28.149:26380,redis://10.0.28.149:26381
+     sentinelAddresses: redis://10.0.31.108:26379,redis://10.0.31.108:26380,redis://10.0.31.108:26381
   kafka:
     #bootstrapAddress: kafka1:9092
     bootstrapAddress: 191.255.15.98:9092  
