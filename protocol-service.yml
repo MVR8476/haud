@@ -45,7 +45,7 @@ haud:
        setMasterConnectionPoolSize: 64
        setMasterName: haud-produce-master       
        setDatabase: 0
-       setSentinelAddresses: redis://127.0.0.1:26379,redis://127.0.0.1:26380,redis://127.0.0.1:26381       	
+       setSentinelAddresses: redis://10.0.31.108:26379,redis://10.0.31.108:26380,redis://10.0.31.108:26381      	
 authsvc:
   openid:
     wellKnownConfig:
