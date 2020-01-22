@@ -1,12 +1,12 @@
 # ===============================
 # = APPLICATION SERVER configurations
+#  undertow: 
+#    ioThreads: 15
+#    workerThreads: 150
+#    accesslog:
+#      enabled: true
 # ===============================   
 server:
-  undertow: 
-    ioThreads: 15
-    workerThreads: 150
-    accesslog:
-      enabled: true
   compression: 
     enabled: true
     mimeTypes: text/xml, text/css, text/html, application/json
