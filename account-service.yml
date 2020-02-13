@@ -1,5 +1,5 @@
 server:  
-  port: ${PORT:2222}
+  port: ${PORT:2022}
 
           
 ribbon:
@@ -7,4 +7,19 @@ ribbon:
     enabled: true
     
 example:
-  name: Mayuresh
+    name: Mayuresh
+        
+test:
+  accounts:
+    - id: 1
+      number: '0654321789'
+      balance: 2500
+      customerId: 1
+    - id: 2
+      number: '0654321780'
+      balance: 0
+      customerId: 1
+    - id: 3
+      number: '0650981789'
+      balance: 12550
+      customerId: 2   
