@@ -1,0 +1,34 @@
+server:  
+  port: ${PORT:2222}
+
+spring:
+  data:
+    mongodb:
+      host: 192.168.99.100
+      port: 27017
+      username: micro 
+      password: micro
+  rabbitmq:
+    host: 192.168.99.100
+    port: 30000
+    username: guest
+    password: guest
+          
+ribbon:
+  eureka:
+    enabled: true
+    
+test:
+  accounts:
+    - id: 1
+      number: '0654321789'
+      balance: 2500
+      customerId: 1
+    - id: 2
+      number: '0654321780'
+      balance: 0
+      customerId: 1
+    - id: 3
+      number: '0650981789'
+      balance: 12550
+      customerId: 2
