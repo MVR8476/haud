@@ -1,18 +1,6 @@
 server:  
   port: ${PORT:2222}
 
-spring:
-  data:
-    mongodb:
-      host: 192.168.99.100
-      port: 27017
-      username: micro 
-      password: micro
-  rabbitmq:
-    host: 192.168.99.100
-    port: 30000
-    username: guest
-    password: guest
           
 ribbon:
   eureka:
